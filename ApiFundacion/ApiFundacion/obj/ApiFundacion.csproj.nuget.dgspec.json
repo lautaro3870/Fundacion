@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proyectos GitHub\\Proyecto Fundacion Bien\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj": {}
+    "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj": {}
   },
   "projects": {
-    "C:\\Proyectos GitHub\\Proyecto Fundacion Bien\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj": {
+    "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proyectos GitHub\\Proyecto Fundacion Bien\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+        "projectUniqueName": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
         "projectName": "ApiFundacion",
-        "projectPath": "C:\\Proyectos GitHub\\Proyecto Fundacion Bien\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+        "projectPath": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
         "packagesPath": "C:\\Users\\Win\\.nuget\\packages\\",
-        "outputPath": "C:\\Proyectos GitHub\\Proyecto Fundacion Bien\\Fundacion\\ApiFundacion\\ApiFundacion\\obj\\",
+        "outputPath": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

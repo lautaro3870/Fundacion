@@ -21,7 +21,7 @@ namespace ApiFundacion
             Configuration = configuration;
         }
 
-        //fghghfgh
+        
 
         public IConfiguration Configuration { get; }
 

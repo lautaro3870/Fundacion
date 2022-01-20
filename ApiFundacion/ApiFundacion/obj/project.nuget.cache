@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zoqBdacKfdB+vzm5MbJrIxo2XRW6aj8l3HC03QFqaS7LcwsmhMbDUd+d5+GCNVYTCpuCCsUvKplw+c1QqSgNXQ==",
+  "dgSpecHash": "+/5H1obBqAuH7awgEa936NG8+Qb7/hdXyrXDv3mr002Bp42eJIXZMcA9K53CHFMqKb1OLbo7pkVza49b7OkQig==",
   "success": true,
-  "projectFilePath": "C:\\Proyectos GitHub\\Proyecto Fundacion Bien\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+  "projectFilePath": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Win\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
