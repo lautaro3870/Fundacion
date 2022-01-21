@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JNd/WWFMULQeJD8m5eHZ1craWsKklxKX+BWgy/Y+h9nFdxb5BYszMkLuBPfIPS06Wha9ibA2oFmyog0K0vz/jg==",
+  "dgSpecHash": "+aoz2FYt1aMeAq88Hz7rKnQhOXm7CjQNMs5+yWMYEM3pM9QoH86daiJlI40MxTVjwczphihsUG0GT7MXhbzo2Q==",
   "success": true,
   "projectFilePath": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,8 @@
     "C:\\Users\\Win\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Win\\.nuget\\packages\\npgsql\\5.0.10\\npgsql.5.0.10.nupkg.sha512",
+    "C:\\Users\\Win\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\5.0.10\\npgsql.entityframeworkcore.postgresql.5.0.10.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\pomelo.entityframeworkcore.lolita\\1.1.0\\pomelo.entityframeworkcore.lolita.1.1.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\pomelo.entityframeworkcore.lolita.postgresql\\1.1.0\\pomelo.entityframeworkcore.lolita.postgresql.1.1.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
