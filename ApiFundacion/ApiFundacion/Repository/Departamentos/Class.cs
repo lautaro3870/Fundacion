@@ -7,5 +7,6 @@ namespace ApiFundacion.Repository.Departamentos
 {
     public class Class
     {
+        //holaaaaaa
     }
 }
