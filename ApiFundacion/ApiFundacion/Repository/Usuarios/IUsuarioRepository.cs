@@ -9,8 +9,14 @@ namespace ApiFundacion.Repository.Usuarios
 {
     public interface IUsuarioRepository
     {
+        //Usuario Signup(Usuario oPersonal);
+        //Usuario Login(Usuario oPersonal);
+        //List<Usuario> GetUsuario();
+
+
         Personal Signup(Personal oPersonal);
         Personal Login(Personal oPersonal);
-        List<Personal> GetPersonal();
+        List<Personal> GetUsuario();
+
     }
 }
