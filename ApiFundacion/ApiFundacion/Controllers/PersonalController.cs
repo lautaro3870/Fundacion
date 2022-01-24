@@ -29,14 +29,22 @@ namespace ApiFundacion.Controllers
 
 
         // GET: api/<PersonalController>
-        //[HttpGet]
-        //public List<Personal> Get()
-        //{
-        //    return _usuarioRepository.GetPersonal();
-        //}
+        [HttpGet]
+        public List<Personal> Get()
+        {
+            return _usuarioRepository.GetUsuario();
+        }
 
         // GET api/<PersonalController>/5
-        [HttpGet]
+        //[HttpGet("Login")]
+        //public Usuario Login([FromBody] Usuario personal)
+        //{
+        //    return _usuarioRepository.Login(personal);
+        //}
+
+
+
+        [HttpGet("Login")]
         public Personal Login([FromBody] Personal personal)
         {
             return _usuarioRepository.Login(personal);
@@ -44,7 +52,7 @@ namespace ApiFundacion.Controllers
 
         // POST api/<PersonalController>
         [HttpPost]
-        public Personal Singup([FromBody] Personal personal)
+        public Personal Singup([FromBody] PersonalDTO personal)
         {
             //var email = personal.Email;
             //var contra = personal.Password;
@@ -57,7 +65,14 @@ namespace ApiFundacion.Controllers
             //{
             //    return null;
             //}
-            return _usuarioRepository.Signup(personal);
+
+            Personal p = new Personal()
+            {
+                Email = personal.Email,
+                Password = personal.Password
+            };
+
+            return _usuarioRepository.Signup(p);
         }
 
 
