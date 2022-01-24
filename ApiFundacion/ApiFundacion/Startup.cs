@@ -16,6 +16,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ApiFundacion.Models.DTO;
+using ApiFundacion.Repository.Usuarios;
 
 namespace ApiFundacion
 {
@@ -49,6 +50,7 @@ namespace ApiFundacion
             });
 
             services.AddTransient<IAreaRepository, AreaRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             //services.AddScoped<IAreaRepository, AreaRepository>();
         }
 
