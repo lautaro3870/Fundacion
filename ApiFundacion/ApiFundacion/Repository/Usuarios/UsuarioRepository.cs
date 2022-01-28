@@ -45,10 +45,7 @@ namespace ApiFundacion.Repository.Usuarios
             {
                 return personal;
             }
-            else
-            {
-                return null;
-            }
+            return null;
             
         }
 
