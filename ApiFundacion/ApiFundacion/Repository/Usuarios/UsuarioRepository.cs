@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static ApiFundacion.Resultados.Resultados;
 
 
 
@@ -45,6 +46,7 @@ namespace ApiFundacion.Repository.Usuarios
                 return personal;
             }
             return null;
+            
         }
 
         //public Usuario Signup(Usuario oPersonal)
