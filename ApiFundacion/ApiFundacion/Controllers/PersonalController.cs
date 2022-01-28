@@ -44,10 +44,16 @@ namespace ApiFundacion.Controllers
 
 
 
-        [HttpGet("Login")]
+        [HttpPost("Login")]
         public Personal Login([FromBody] Personal personal)
         {
-            return _usuarioRepository.Login(personal);
+
+            Personal p = new Personal()
+            {
+                Email = personal.Email,
+                Password = personal.Password
+            };
+            return _usuarioRepository.Login(p);
         }
 
         // POST api/<PersonalController>
