@@ -1,6 +1,7 @@
 ﻿using ApiFundacion.Models;
 using ApiFundacion.Models.DTO;
 using ApiFundacion.Repository.Usuarios;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace ApiFundacion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Prog3")]
     public class PersonalController : ControllerBase
     {
 
