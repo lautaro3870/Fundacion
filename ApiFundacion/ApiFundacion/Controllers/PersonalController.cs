@@ -55,6 +55,8 @@ namespace ApiFundacion.Controllers
                 Email = personal.Email,
                 Password = personal.Password
             };
+
+
             return _usuarioRepository.Login(p);
         }
 
