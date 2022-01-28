@@ -52,11 +52,30 @@ namespace ApiFundacion
             services.AddTransient<IAreaRepository, AreaRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             //services.AddScoped<IAreaRepository, AreaRepository>();
+
+            services.AddCors(o => o.AddPolicy("Prog3", builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+
+            }));
+            services.AddRouting(r => r.SuppressCheckForUnhandledSecurityMetadata = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseCors("Prog3");
+
+            app.Use((context, next) =>
+            {
+                context.Items["__CorsMiddlewareInvoked"] = true;
+                return next();
+            });
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
