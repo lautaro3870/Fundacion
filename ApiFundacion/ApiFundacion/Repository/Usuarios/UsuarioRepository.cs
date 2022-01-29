@@ -1,5 +1,6 @@
 ﻿using ApiFundacion.Models;
 using ApiFundacion.Models.DTO;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,18 +37,22 @@ namespace ApiFundacion.Repository.Usuarios
         //    return null;
         //}
 
-        public Personal Login(Personal oPersonal)
+        public async Task<Personal> Login(Personal oPersonal)
         {
-            var personal = context.Personals.SingleOrDefault(x => x.Email == oPersonal.Email);
-            bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
 
-            if (isValidPassword)
-            {
+                var personal = await context.Personals.SingleOrDefaultAsync(x => x.Email == oPersonal.Email);
+            //el metodo verify de la clase Bcrypt es estatico, por ende no se debe instanciar la clase, solo se implementa
+                bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
+
+                if (!isValidPassword)
+                {
+                    throw new Exception("Error logueo");
+                }
+
                 return personal;
-            }
-            return null;
             
         }
+
 
         //public Usuario Signup(Usuario oPersonal)
         //{
