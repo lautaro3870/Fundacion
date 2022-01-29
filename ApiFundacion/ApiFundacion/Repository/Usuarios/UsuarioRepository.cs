@@ -44,10 +44,11 @@ namespace ApiFundacion.Repository.Usuarios
             //el metodo verify de la clase Bcrypt es estatico, por ende no se debe instanciar la clase, solo se implementa
                 bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
 
-                if (!isValidPassword)
-                {
-                    throw new Exception("Error logueo");
-                }
+            if (!isValidPassword)
+            {
+                //throw new Exception("Error logueo");
+                return null;
+            }
 
                 return personal;
             
