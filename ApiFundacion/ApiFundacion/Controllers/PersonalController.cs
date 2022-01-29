@@ -47,7 +47,7 @@ namespace ApiFundacion.Controllers
 
 
         [HttpPost("Login")]
-        public Personal Login([FromBody] Personal personal)
+        public async Task<Personal> Login([FromBody] Personal personal)
         {
 
             Personal p = new Personal()
@@ -57,7 +57,7 @@ namespace ApiFundacion.Controllers
             };
 
 
-            return _usuarioRepository.Login(p);
+            return await _usuarioRepository.Login(p);
         }
 
         // POST api/<PersonalController>

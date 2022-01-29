@@ -15,7 +15,7 @@ namespace ApiFundacion.Repository.Usuarios
 
 
         Personal Signup(Personal oPersonal);
-        Personal Login(Personal oPersonal);
+        Task<Personal> Login(Personal oPersonal);
         List<Personal> GetUsuario();
 
     }
