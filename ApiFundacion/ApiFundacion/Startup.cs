@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ApiFundacion.Models.DTO;
 using ApiFundacion.Repository.Usuarios;
+using ApiFundacion.Repository.Proyectos;
 
 namespace ApiFundacion
 {
@@ -49,6 +50,7 @@ namespace ApiFundacion
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiFundacion", Version = "v1" });
             });
 
+            services.AddTransient<IProyectoRepository, ProyectoRepository>();
             services.AddTransient<IAreaRepository, AreaRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             //services.AddScoped<IAreaRepository, AreaRepository>();
