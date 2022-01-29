@@ -7,8 +7,8 @@ namespace ApiFundacion.Models.DTO
 {
     public class AreasDTO
     {
-        public int Id { get; set; }
+        
         public string Area1 { get; set; }
-        public char? Trial059 { get; set; }
+        
     }
 }

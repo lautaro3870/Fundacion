@@ -1,4 +1,5 @@
 ﻿using ApiFundacion.Models;
+using ApiFundacion.Models.DTO;
 using ApiFundacion.Repository.Proyectos;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -27,7 +28,7 @@ namespace ApiFundacion.Controllers
 
         // GET: api/<ProyectoController>
         [HttpGet]
-        public async Task<ActionResult<List<Proyecto>>> Get()
+        public async Task<ActionResult<List<ProyectoDTO>>> Get()
         {
             return await proyectorepository.GetProyectos();
         }
