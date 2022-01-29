@@ -1,4 +1,5 @@
 ﻿using ApiFundacion.Models;
+using ApiFundacion.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace ApiFundacion.Repository.Proyectos
 
         Task<Proyecto> Update(Proyecto proyecto);
 
-        Task<List<Proyecto>> GetProyectos();
+        Task<List<ProyectoDTO>> GetProyectos();
 
         Task<bool> Delete(int id);
     }
