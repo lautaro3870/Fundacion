@@ -1203,24 +1203,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Win\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Maxi Farias\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+      "projectUniqueName": "D:\\FundacionBariloche\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
       "projectName": "ApiFundacion",
-      "projectPath": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
-      "packagesPath": "C:\\Users\\Win\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\obj\\",
+      "projectPath": "D:\\FundacionBariloche\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+      "packagesPath": "C:\\Users\\Maxi Farias\\.nuget\\packages\\",
+      "outputPath": "D:\\FundacionBariloche\\Fundacion\\ApiFundacion\\ApiFundacion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Win\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Maxi Farias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1294,7 +1298,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,6 +1,7 @@
 ﻿using ApiFundacion.Models;
 using ApiFundacion.Models.DTO;
 using ApiFundacion.Repository.Proyectos;
+using ApiFundacion.Repository.QueryFilters;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -27,10 +28,16 @@ namespace ApiFundacion.Controllers
 
 
         // GET: api/<ProyectoController>
+        //[HttpGet]
+        //public async Task<ActionResult<List<ProyectoDTO>>> Get()
+        //{
+        //    return await proyectorepository.GetProyectos();
+        //}
+
         [HttpGet]
-        public async Task<ActionResult<List<ProyectoDTO>>> Get()
+        public async Task<ActionResult<List<ProyectoDTO>>> GetFilters([FromQuery] ProyectosQueryFilter filters)
         {
-            return await proyectorepository.GetProyectos();
+            return await proyectorepository.GetProyectosFilter(filters);
         }
 
         // GET api/<ProyectoController>/5

@@ -91,3 +91,4 @@ D:\FundacionBariloche\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\ref\A
 D:\FundacionBariloche\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\ApiFundacion.pdb
 D:\FundacionBariloche\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\ApiFundacion.genruntimeconfig.cache
 C:\Proyectos GitHub\La concha de la lora\ApiFundacion\ApiFundacion\bin\Debug\net5.0\BCrypt.Net-Next.dll
+D:\FundacionBariloche\Fundacion\ApiFundacion\ApiFundacion\bin\Debug\net5.0\BCrypt.Net-Next.dll
