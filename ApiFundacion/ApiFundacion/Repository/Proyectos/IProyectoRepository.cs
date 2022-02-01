@@ -1,5 +1,6 @@
 ﻿using ApiFundacion.Models;
 using ApiFundacion.Models.DTO;
+using ApiFundacion.Repository.QueryFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace ApiFundacion.Repository.Proyectos
         Task<Proyecto> Update(Proyecto proyecto);
 
         Task<List<ProyectoDTO>> GetProyectos();
+        Task<List<ProyectoDTO>> GetProyectosFilter(ProyectosQueryFilter filters);
 
         Task<bool> Delete(int id);
     }
