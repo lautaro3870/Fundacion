@@ -81,14 +81,28 @@ namespace ApiFundacion.Repository.Proyectos
             return true;
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            var proyecto = await context.Proyectos.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (proyecto == null)
+            {
+                throw new Exception("Proyecto no encontrado");
+            }
+            else
+            {
+                proyecto.Activo = false;
+                //context.Proyectos.Update(proyecto);
+                await context.SaveChangesAsync();
+                return true;
+            }
+            
         }
 
         public async Task<List<ProyectoDTO>> GetProyectosFilter(ProyectosQueryFilter filters)
         {
-            var proyectos = await context.Proyectos.OrderBy(x => x.Id).ToListAsync();
+
+            var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true)).OrderBy(x => x.Id).ToListAsync();
             var areasxproyectosBD = await context.Areasxproyectos.ToListAsync();
             var areaBD = await context.Areas.ToListAsync();
 
@@ -274,14 +288,8 @@ namespace ApiFundacion.Repository.Proyectos
 
             }
 
-
         }
 
         
-
-        public Task<Proyecto> Update(ProyectoInsert proyecto)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
