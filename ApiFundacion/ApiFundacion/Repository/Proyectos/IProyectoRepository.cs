@@ -10,9 +10,9 @@ namespace ApiFundacion.Repository.Proyectos
 {
     public interface IProyectoRepository
     {
-        Task<Proyecto> Create(Proyecto proyecto);
-
-        Task<Proyecto> Update(Proyecto proyecto);
+        Task<bool> Create(ProyectoInsert proyecto);
+        
+        Task<bool> Update(ProyectoUpdate proyecto);
 
         Task<List<ProyectoDTO>> GetProyectos();
         Task<List<ProyectoDTO>> GetProyectosFilter(ProyectosQueryFilter filters);

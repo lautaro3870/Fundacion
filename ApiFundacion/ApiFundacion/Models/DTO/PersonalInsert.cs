@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace ApiFundacion.Models.DTO
 {
-    public class AreasDTO
+    public class PersonalInsert
     {
-        public string Area1 { get; set; }
-        
+        public int Id { get; set; }
     }
 }

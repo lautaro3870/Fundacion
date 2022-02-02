@@ -49,14 +49,16 @@ namespace ApiFundacion.Controllers
 
         // POST api/<ProyectoController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<bool> Post(ProyectoInsert proyecto)
         {
+            return await proyectorepository.Create(proyecto);
         }
 
         // PUT api/<ProyectoController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<bool> Put(ProyectoUpdate proyecto)
         {
+            return await proyectorepository.Update(proyecto);
         }
 
         // DELETE api/<ProyectoController>/5

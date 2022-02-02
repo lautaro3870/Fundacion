@@ -10,7 +10,6 @@ namespace ApiFundacion.Models.DTO
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string PaisRegion { get; set; }
-        
         public int? MesInicio { get; set; }
         public int? AnioInicio { get; set; }
         public int? MesFinalizacion { get; set; }
