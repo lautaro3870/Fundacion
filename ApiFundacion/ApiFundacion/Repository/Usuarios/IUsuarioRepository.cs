@@ -9,14 +9,16 @@ namespace ApiFundacion.Repository.Usuarios
 {
     public interface IUsuarioRepository
     {
-        //Usuario Signup(Usuario oPersonal);
-        //Usuario Login(Usuario oPersonal);
-        //List<Usuario> GetUsuario();
+        Usuario Signup(Usuario oPersonal);
+        Usuario Login(Usuario oPersonal);
+        List<Usuario> GetUsuario();
+
+        bool UpdatePass(UsuarioUpdate usuario);
 
 
-        Personal Signup(Personal oPersonal);
-        Task<Personal> Login(Personal oPersonal);
-        List<Personal> GetUsuario();
+        //Personal Signup(Personal oPersonal);
+        //Task<Personal> Login(Personal oPersonal);
+        //List<Personal> GetUsuario();
 
     }
 }

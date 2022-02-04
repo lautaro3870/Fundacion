@@ -20,60 +20,76 @@ namespace ApiFundacion.Repository.Usuarios
             this.context = context;
         }
 
-        //public List<Usuario> GetUsuario()
-        //{
-        //    return context.Usuarios.ToList();
-        //}
-
-        //public Usuario Login(Usuario oPersonal)
-        //{
-        //    var personal = context.Usuarios.SingleOrDefault(x => x.Email == oPersonal.Email);
-        //    bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
-
-        //    if(isValidPassword)
-        //    {
-        //        return personal;
-        //    }
-        //    return null;
-        //}
-
-        public async Task<Personal> Login(Personal oPersonal)
+        public List<Usuario> GetUsuario()
         {
-
-                var personal = await context.Personals.SingleOrDefaultAsync(x => x.Email == oPersonal.Email);
-            //el metodo verify de la clase Bcrypt es estatico, por ende no se debe instanciar la clase, solo se implementa
-                bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
-
-            if (!isValidPassword)
-            {
-                //throw new Exception("Error logueo");
-                return null;
-            }
-
-                return personal;
-            
+            return context.Usuarios.ToList();
         }
 
+        public Usuario Login(Usuario oPersonal)
+        {
+            var personal = context.Usuarios.SingleOrDefault(x => x.Email == oPersonal.Email);
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
 
-        //public Usuario Signup(Usuario oPersonal)
+            if (isValidPassword)
+            {
+                return personal;
+            }
+            return null;
+        }
+
+        //public async Task<Personal> Login(Personal oPersonal)
         //{
-        //    oPersonal.Password = BCrypt.Net.BCrypt.HashPassword(oPersonal.Password);
-        //    context.Usuarios.Add(oPersonal);
-        //    context.SaveChanges();
-        //    return oPersonal;
+
+        //    var personal = await context.Personals.SingleOrDefaultAsync(x => x.Email == oPersonal.Email);
+        //    el metodo verify de la clase Bcrypt es estatico, por ende no se debe instanciar la clase, solo se implementa
+        //        bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
+
+        //    if (!isValidPassword)
+        //    {
+        //        throw new Exception("Error logueo");
+        //        return null;
+        //    }
+
+        //    return personal;
+
         //}
 
-        public Personal Signup(Personal oPersonal)
+
+        public Usuario Signup(Usuario oPersonal)
         {
             oPersonal.Password = BCrypt.Net.BCrypt.HashPassword(oPersonal.Password);
-            context.Personals.Add(oPersonal);
+            context.Usuarios.Add(oPersonal);
             context.SaveChanges();
             return oPersonal;
         }
 
-        public List<Personal> GetUsuario()
+        public bool UpdatePass(UsuarioUpdate usuario)
         {
-            return context.Personals.ToList();
+            var usu = context.Usuarios.SingleOrDefault(x => x.Email == usuario.Email);
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(usuario.PasswordVieja, usu.Password);
+
+            if (isValidPassword)
+            {
+                usu.Password = BCrypt.Net.BCrypt.HashPassword(usuario.PasswordNueva);
+                context.Usuarios.Update(usu);
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+
         }
+
+        //public Personal Signup(Personal oPersonal)
+        //{
+        //    oPersonal.Password = BCrypt.Net.BCrypt.HashPassword(oPersonal.Password);
+        //    context.Personals.Add(oPersonal);
+        //    context.SaveChanges();
+        //    return oPersonal;
+        //}
+
+        //public List<Personal> GetUsuario()
+        //{
+        //    return context.Personals.ToList();
+        //}
     }
 }

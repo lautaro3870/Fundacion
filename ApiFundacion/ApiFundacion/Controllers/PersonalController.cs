@@ -32,7 +32,7 @@ namespace ApiFundacion.Controllers
 
         // GET: api/<PersonalController>
         [HttpGet]
-        public List<Personal> Get()
+        public List<Usuario> Get()
         {
             return _usuarioRepository.GetUsuario();
         }
@@ -47,22 +47,35 @@ namespace ApiFundacion.Controllers
 
 
         [HttpPost("Login")]
-        public async Task<Personal> Login([FromBody] Personal personal)
+        public async Task<Usuario> Login([FromBody] Usuario usuario)
         {
 
-            Personal p = new Personal()
+            Usuario u = new Usuario
             {
-                Email = personal.Email,
-                Password = personal.Password
+                Email = usuario.Email,
+                Password = usuario.Password
             };
 
 
-            return await _usuarioRepository.Login(p);
+            return _usuarioRepository.Login(u);
+        }
+
+        [HttpPut("Update")]
+        public bool Update(UsuarioUpdate usuario)
+        {
+            UsuarioUpdate u = new UsuarioUpdate
+            {
+                Email = usuario.Email,
+                PasswordVieja = usuario.PasswordVieja,
+                PasswordNueva = usuario.PasswordNueva
+            };
+
+            return _usuarioRepository.UpdatePass(u);
         }
 
         // POST api/<PersonalController>
         [HttpPost]
-        public Personal Singup([FromBody] PersonalDTO personal)
+        public Usuario Singup([FromBody] Usuario usuario)
         {
             //var email = personal.Email;
             //var contra = personal.Password;
@@ -76,10 +89,10 @@ namespace ApiFundacion.Controllers
             //    return null;
             //}
 
-            Personal p = new Personal()
+            Usuario p = new Usuario()
             {
-                Email = personal.Email,
-                Password = personal.Password
+                Email = usuario.Email,
+                Password = usuario.Password
             };
 
             return _usuarioRepository.Signup(p);
