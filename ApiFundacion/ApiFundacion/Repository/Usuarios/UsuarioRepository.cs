@@ -20,6 +20,11 @@ namespace ApiFundacion.Repository.Usuarios
             this.context = context;
         }
 
+        public List<Personal> GetPersonal()
+        {
+            return  context.Personals.ToList();
+        }
+
         public List<Usuario> GetUsuario()
         {
             return context.Usuarios.ToList();

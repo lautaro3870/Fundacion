@@ -32,9 +32,9 @@ namespace ApiFundacion.Controllers
 
         // GET: api/<PersonalController>
         [HttpGet]
-        public List<Usuario> Get()
+        public List<Personal> Get()
         {
-            return _usuarioRepository.GetUsuario();
+            return _usuarioRepository.GetPersonal();
         }
 
         // GET api/<PersonalController>/5
