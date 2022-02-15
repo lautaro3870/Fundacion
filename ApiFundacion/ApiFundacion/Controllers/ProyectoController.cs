@@ -68,7 +68,6 @@ namespace ApiFundacion.Controllers
             return await proyectorepository.Delete(id);
         }
 
-        //bocaaaa
-        //dfgdfgdfg
+        
     }
 }
