@@ -16,6 +16,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ApiFundacion.Models.DTO;
+using ApiFundacion.Repository.Usuarios;
+using ApiFundacion.Repository.Proyectos;
 
 namespace ApiFundacion
 {
@@ -48,13 +50,34 @@ namespace ApiFundacion
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiFundacion", Version = "v1" });
             });
 
+            services.AddTransient<IProyectoRepository, ProyectoRepository>();
             services.AddTransient<IAreaRepository, AreaRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             //services.AddScoped<IAreaRepository, AreaRepository>();
+
+            services.AddCors(o => o.AddPolicy("Prog3", builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+
+            }));
+            services.AddRouting(r => r.SuppressCheckForUnhandledSecurityMetadata = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseCors("Prog3");
+
+            app.Use((context, next) =>
+            {
+                context.Items["__CorsMiddlewareInvoked"] = true;
+                return next();
+            });
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
