@@ -7,6 +7,7 @@ namespace ApiFundacion.Models.DTO
 {
     public class AreaInsert
     {
+        //mensaje
         public int Id { get; set; }
     }
 }
