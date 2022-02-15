@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IIM39dzq8Cb0MBRLc6gxGO0N0zHaPPPp+mouevNOgmtuadEYau/Ft+e/lNJ9kDFrKQ4Ivh8KCkByw1KLs+Mrqg==",
+  "dgSpecHash": "qFQbdfKL1X6pk+V+dTN1LZtCHJ5kxWE/0dycS1YFOqng3o/NICpqEI7fS+9bWnCn1tNmxR1rxAJgFItzR0wLYg==",
   "success": true,
-  "projectFilePath": "C:\\Proyectos GitHub\\La concha de la lora\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+  "projectFilePath": "C:\\Proyectos GitHub\\Otro repo\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Win\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
@@ -39,5 +39,12 @@
     "C:\\Users\\Win\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Proyectos GitHub\\Otro repo\\Fundacion\\ApiFundacion\\ApiFundacion\\obj\\project.nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
+    }
+  ]
 }
