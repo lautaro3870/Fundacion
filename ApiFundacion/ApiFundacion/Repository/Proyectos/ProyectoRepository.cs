@@ -81,23 +81,63 @@ namespace ApiFundacion.Repository.Proyectos
             return true;
         }
 
-        public async Task<bool> Delete(int id)
-        {
-            var proyecto = await context.Proyectos.FirstOrDefaultAsync(x => x.Id == id);
+        //public async Task<List<ProyectoDTO>> Delete(int id)
+        //{
+        //    var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true)).OrderBy(x => x.Id).ToListAsync();
+        //    var proyecto = await context.Proyectos.FirstOrDefaultAsync(x => x.Id == id);
+        //    var areasxproyectosBD = await context.Areasxproyectos.ToListAsync();
+        //    var areaBD = await context.Areas.ToListAsync();
 
-            if (proyecto == null)
-            {
-                throw new Exception("Proyecto no encontrado");
-            }
-            else
-            {
-                proyecto.Activo = false;
-                //context.Proyectos.Update(proyecto);
-                await context.SaveChangesAsync();
-                return true;
-            }
-            
-        }
+        //    if (proyectos == null)
+        //    {
+        //        throw new Exception("Proyecto no encontrado");
+        //    }
+        //    else
+        //    {
+        //        proyecto.Activo = false;
+        //        //context.Proyectos.Update(proyecto);
+        //        await context.SaveChangesAsync();
+        //        var proyectosDto = new List<ProyectoDTO>();
+        //        var listaAreaDto = new List<AreasDTO>();
+                
+        //        foreach (var i in proyectos)            
+        //        {
+        //            //var areaxProyecto = await context.Areasxproyectos.Where(x => x.Idproyecto == i.Id).ToListAsync();
+        //            var areaxProyecto = areasxproyectosBD.Where(x => x.Idproyecto == i.Id).ToList();
+        //            foreach (var j in areaxProyecto)
+        //            {
+        //                //var area = await context.Areas.FirstOrDefaultAsync(x => x.Id == j.Idarea);
+        //                var area = areaBD.FirstOrDefault(x => x.Id == j.Idarea);
+
+        //                if (area != null)
+        //                {
+        //                    var areaDto = new AreasDTO
+        //                    {
+        //                        Area1 = area.Area1
+        //                    };
+        //                    listaAreaDto.Add(areaDto);
+        //                }
+        //            }
+        //            var proyectoDto = new ProyectoDTO
+        //            {
+        //                Id = i.Id,
+        //                Titulo = i.Titulo,
+        //                AnioFinalizacion = i.AnioFinalizacion,
+        //                AnioInicio = i.AnioInicio,
+        //                Departamentos = i.Departamento,
+        //                ListaAreas = listaAreaDto,
+        //                FichaLista = i.FichaLista,
+        //                MesFinalizacion = i.MesFinalizacion,
+        //                MesInicio = i.MesInicio,
+        //                PaisRegion = i.PaisRegion
+        //            };
+
+        //            proyectosDto.Add(proyectoDto);
+        //        }
+        //        return proyectosDto;
+        //    }
+
+        //}
 
         public async Task<List<ProyectoDTO>> GetProyectosFilter(ProyectosQueryFilter filters)
         {
@@ -175,7 +215,7 @@ namespace ApiFundacion.Repository.Proyectos
         public async Task<List<ProyectoDTO>> GetProyectos()
         {
             //return await context.Proyectos.ToListAsync();
-            var proyectos = await context.Proyectos.OrderBy(x => x.Id).ToListAsync();
+            var proyectos = await context.Proyectos.OrderBy(x => x.Id).Where(j => j.Activo == true).ToListAsync();
 
             var listProyectoDto = new List<ProyectoDTO>();
             
@@ -290,6 +330,22 @@ namespace ApiFundacion.Repository.Proyectos
 
         }
 
-        
+        public async Task<bool> Delete(int id)
+        {
+            //var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true)).OrderBy(x => x.Id).ToListAsync();
+            var proyecto = await context.Proyectos.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (proyecto == null)
+            {
+                throw new Exception("Proyecto no encontrado");
+            }
+            else
+            {
+                proyecto.Activo = false;
+                //context.Proyectos.Update(proyecto);
+                await context.SaveChangesAsync();
+                return true;
+            }
+        }
     }
 }
