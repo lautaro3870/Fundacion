@@ -141,7 +141,6 @@ namespace ApiFundacion.Repository.Proyectos
 
         public async Task<List<ProyectoDTO>> GetProyectosFilter(ProyectosQueryFilter filters)
         {
-
             var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true)).OrderBy(x => x.Id).ToListAsync();
             var areasxproyectosBD = await context.Areasxproyectos.ToListAsync();
             var areaBD = await context.Areas.ToListAsync();
@@ -182,6 +181,11 @@ namespace ApiFundacion.Repository.Proyectos
                 };
 
                 listProyectoDto.Add(proyectoDto);
+            }
+
+            if (filters.Id != null)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.Id == filters.Id).ToList();
             }
 
             if (filters.AnioInicio != null)
@@ -346,6 +350,89 @@ namespace ApiFundacion.Repository.Proyectos
                 await context.SaveChangesAsync();
                 return true;
             }
+        }
+
+        public async Task<List<ProyectoIdDTO>> GetProyectosId(int id)
+        {
+            var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true) && i.Id == id).OrderBy(x => x.Id).ToListAsync();
+            var areasxproyectosBD = await context.Areasxproyectos.ToListAsync();
+            var personalxproyectoBD = await context.Equipoxproyectos.ToListAsync();
+            var areaBD = await context.Areas.ToListAsync();
+            var personalBD = await context.Personals.ToListAsync();
+
+            var listProyectoDto = new List<ProyectoIdDTO>();
+
+            foreach (var i in proyectos)
+            {
+                //var areaxProyecto = await context.Areasxproyectos.Where(x => x.Idproyecto == i.Id).ToListAsync();
+                var areaxProyecto = areasxproyectosBD.Where(x => x.Idproyecto == i.Id).ToList();
+                var equipoxProyecto = personalxproyectoBD.Where(x => x.IdProyecto == i.Id).ToList();
+                var listaAreaDto = new List<AreasDTO>();
+                var listaEquipoDto = new List<PersonalDTOId>();
+
+                foreach (var j in areaxProyecto)
+                {
+                    //var area = await context.Areas.FirstOrDefaultAsync(x => x.Id == j.Idarea);
+                    var area = areaBD.FirstOrDefault(x => x.Id == j.Idarea);
+
+                    if (area != null)
+                    {
+                        var areaDto = new AreasDTO
+                        {
+                            Area1 = area.Area1
+                        };
+                        listaAreaDto.Add(areaDto);
+                    }
+                }
+
+                foreach (var k in equipoxProyecto)
+                {
+                    //var area = await context.Areas.FirstOrDefaultAsync(x => x.Id == j.Idarea);
+                    var personal = personalBD.FirstOrDefault(x => x.Id == k.IdPersonal);
+
+                    if (personal != null)
+                    {
+                        var personalDto = new PersonalDTOId
+                        {
+                            Id = personal.Id,
+                            Nombre = personal.Nombre,
+                            Titulo = personal.Titulo
+                           
+                        };
+                        listaEquipoDto.Add(personalDto);
+                    }
+                }
+                var proyectoDto = new ProyectoIdDTO
+                {
+                    Id = i.Id,
+                    Titulo = i.Titulo,
+                    AnioFinalizacion = i.AnioFinalizacion,
+                    AnioInicio = i.AnioInicio,
+                    Departamento = i.Departamento,
+                    ListaAreas = listaAreaDto,
+                    ListaPersonal = listaEquipoDto,
+                    FichaLista = i.FichaLista,
+                    MesFinalizacion = i.MesFinalizacion,
+                    MesInicio = i.MesInicio,
+                    PaisRegion = i.PaisRegion,
+                    Activo = i.Activo,
+                    Certificadopor = i.Certificadopor,
+                    Certconformidad = i.Certconformidad,
+                    Moneda = i.Moneda,
+                    EnCurso = i.EnCurso,
+                    Resultados = i.Resultados,
+                    Descripcion = i.Descripcion,
+                    MontoContrato = i.MontoContrato,
+                    ConsultoresAsoc = i.ConsultoresAsoc,
+                    NroContrato = i.NroContrato,
+                    Dirección = i.Dirección,
+                    Contratante = i.Contratante
+                };
+
+                listProyectoDto.Add(proyectoDto);
+            }
+
+            return listProyectoDto;
         }
     }
 }
