@@ -379,6 +379,7 @@ namespace ApiFundacion.Repository.Proyectos
                     {
                         var areaDto = new AreasDTO
                         {
+                            Id = area.Id,
                             Area1 = area.Area1
                         };
                         listaAreaDto.Add(areaDto);
