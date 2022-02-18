@@ -7,6 +7,7 @@ namespace ApiFundacion.Repository.QueryFilters
 {
     public class ProyectosQueryFilter
     {
+        public int? Id { get; set; }
         public string? Titulo { get; set; }
         public string? Pais { get; set; }
         public int? MesInicio { get; set; }

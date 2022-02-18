@@ -42,9 +42,9 @@ namespace ApiFundacion.Controllers
 
         // GET api/<ProyectoController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<List<ProyectoIdDTO>>> GetProyectoId(int id)
         {
-            return "value";
+            return await proyectorepository.GetProyectosId(id);
         }
 
         // POST api/<ProyectoController>
