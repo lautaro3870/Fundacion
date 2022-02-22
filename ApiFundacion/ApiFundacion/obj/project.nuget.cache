@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qFQbdfKL1X6pk+V+dTN1LZtCHJ5kxWE/0dycS1YFOqng3o/NICpqEI7fS+9bWnCn1tNmxR1rxAJgFItzR0wLYg==",
+  "dgSpecHash": "hu9+LR1D2OApnP0BcJlFZJEK5K75YGLTC8UTrg+2Ild//7AsLnJ4ZuRyEiv4YHAz7yx90FKCGOZACyPs080emw==",
   "success": true,
   "projectFilePath": "C:\\Proyectos GitHub\\Otro repo\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
   "expectedPackageFiles": [
@@ -37,14 +37,8 @@
     "C:\\Users\\Win\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
-    "C:\\Users\\Win\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Win\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Win\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Proyectos GitHub\\Otro repo\\Fundacion\\ApiFundacion\\ApiFundacion\\obj\\project.nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
-    }
-  ]
+  "logs": []
 }

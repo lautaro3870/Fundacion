@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using ApiFundacion.Models.DTO;
 using ApiFundacion.Repository.Usuarios;
 using ApiFundacion.Repository.Proyectos;
+using ApiFundacion.Repository.Publicaciones;
 
 namespace ApiFundacion
 {
@@ -53,6 +54,7 @@ namespace ApiFundacion
             services.AddTransient<IProyectoRepository, ProyectoRepository>();
             services.AddTransient<IAreaRepository, AreaRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IPublicacionesRepository, PublicacionesRepository>();
             //services.AddScoped<IAreaRepository, AreaRepository>();
 
             services.AddCors(o => o.AddPolicy("Prog3", builder =>
