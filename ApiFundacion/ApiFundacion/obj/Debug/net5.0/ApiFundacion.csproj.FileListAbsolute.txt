@@ -131,7 +131,6 @@ C:\Proyectos GitHub\Otro repo\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5
 C:\Proyectos GitHub\Otro repo\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\ApiFundacion.MvcApplicationPartsAssemblyInfo.cs
 C:\Proyectos GitHub\Otro repo\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\ApiFundacion.MvcApplicationPartsAssemblyInfo.cache
 C:\Proyectos GitHub\Otro repo\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\staticwebassets\ApiFundacion.StaticWebAssets.Manifest.cache
-C:\Proyectos GitHub\Otro repo\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\staticwebassets\ApiFundacion.StaticWebAssets.xml
 C:\Proyectos GitHub\Otro repo\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\scopedcss\bundle\ApiFundacion.styles.css
 C:\Proyectos GitHub\Otro repo\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\ApiFundacion.RazorTargetAssemblyInfo.cache
 C:\Proyectos GitHub\Otro repo\Fundacion\ApiFundacion\ApiFundacion\obj\Debug\net5.0\ApiFundacion.csproj.CopyComplete
