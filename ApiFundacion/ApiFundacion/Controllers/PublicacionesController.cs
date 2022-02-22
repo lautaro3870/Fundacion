@@ -1,4 +1,5 @@
 ﻿using ApiFundacion.Models;
+using ApiFundacion.Models.DTO;
 using ApiFundacion.Repository.Publicaciones;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -39,8 +40,9 @@ namespace ApiFundacion.Controllers
 
         // POST api/<PublicacionesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<bool> Post(PublicacionesDTO publicacion)
         {
+            return await publicacionesRepository.Insert(publicacion);
         }
 
         // PUT api/<PublicacionesController>/5

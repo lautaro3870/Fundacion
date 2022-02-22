@@ -20,5 +20,26 @@ namespace ApiFundacion.Repository.Publicaciones
         {
             return await context.Publicacionesxproyectos.ToListAsync();
         }
+
+        public async Task<bool> Insert(PublicacionesDTO publicacion)
+        {
+            var p = new Publicacionesxproyecto
+            {
+                IdProyecto = publicacion.IdProyecto,
+                Año = publicacion.Año,
+                Publicacion = publicacion.Publicacion,
+                Codigobcs = publicacion.Codigobcs
+            };
+            context.Publicacionesxproyectos.Add(p);
+            var valor = await context.SaveChangesAsync();
+
+            if (valor == 0)
+            {
+                throw new Exception("No se pudo insertar la publicacion");
+            }
+
+            return true;
+
+        }
     }
 }
