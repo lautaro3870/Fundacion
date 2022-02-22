@@ -46,9 +46,10 @@ namespace ApiFundacion.Controllers
         }
 
         // PUT api/<PublicacionesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<bool> Put(PublicacionesDTO publicacion)
         {
+            return await publicacionesRepository.Update(publicacion);
         }
 
         // DELETE api/<PublicacionesController>/5
