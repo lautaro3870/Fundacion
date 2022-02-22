@@ -41,5 +41,33 @@ namespace ApiFundacion.Repository.Publicaciones
             return true;
 
         }
+
+        public async Task<bool> Update(PublicacionesDTO publicacion)
+        {
+            var publi = await context.Publicacionesxproyectos.FirstOrDefaultAsync(x => x.IdPublicacion == publicacion.IdPublicacion && x.IdProyecto == publicacion.IdProyecto);
+
+            if (publi == null)
+            {
+                throw new Exception("Publicacion no encontrada");
+            }
+            else
+            {
+                publi.IdProyecto = publicacion.IdProyecto;
+                publi.Publicacion = publicacion.Publicacion;
+                publi.Año = publicacion.Año;
+                publi.Codigobcs = publicacion.Codigobcs;
+
+                context.Publicacionesxproyectos.Update(publi);
+                var valor = await context.SaveChangesAsync();
+
+                if (valor == 0)
+                {
+                    throw new Exception("Publicacion no modificada");
+                }
+
+                return true;
+            }
+
+        }
     }
 }
