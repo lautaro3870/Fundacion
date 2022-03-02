@@ -58,6 +58,7 @@ namespace ApiFundacion.Repository.Proyectos
                 Areasxproyecto area = new Areasxproyecto();
                 area.Idarea = i.Id;
                 area.Idproyecto = pro.Id;
+                
                 await context.Areasxproyectos.AddAsync(area);
                 
             }
@@ -67,9 +68,10 @@ namespace ApiFundacion.Repository.Proyectos
                 Equipoxproyecto equipo = new Equipoxproyecto();
                 equipo.IdPersonal = j.Id;
                 equipo.IdProyecto = pro.Id;
+                equipo.Coordinador = j.Coordinador;
                 equipo.SsmaTimestamp = new byte[5];
                 await context.Equipoxproyectos.AddAsync(equipo);
-                
+
             }
 
             valor = await context.SaveChangesAsync();
@@ -318,6 +320,7 @@ namespace ApiFundacion.Repository.Proyectos
                     Equipoxproyecto equipo = new Equipoxproyecto();
                     equipo.IdPersonal = j.Id;
                     equipo.IdProyecto = pro.Id;
+                    equipo.Coordinador = j.Coordinador;
                     equipo.SsmaTimestamp = new byte[5];
                     await context.Equipoxproyectos.AddAsync(equipo);
 
