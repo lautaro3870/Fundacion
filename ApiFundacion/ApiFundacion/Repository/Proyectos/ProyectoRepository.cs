@@ -42,6 +42,7 @@ namespace ApiFundacion.Repository.Proyectos
             pro.MesFinalizacion = proyecto.MesFinalizacion;
             pro.Contratante = proyecto.Contratante;
             pro.Dirección = proyecto.Dirección;
+            pro.FichaLista = proyecto.FichaLista;
 
 
             await context.Proyectos.AddAsync(pro);
@@ -290,6 +291,7 @@ namespace ApiFundacion.Repository.Proyectos
                 pro.MesFinalizacion = proyecto.MesFinalizacion ?? pro.MesFinalizacion;
                 pro.Contratante = proyecto.Contratante ?? pro.Contratante;
                 pro.Dirección = proyecto.Dirección ?? pro.Dirección;
+                pro.FichaLista = proyecto.FichaLista ?? pro.FichaLista;
 
                 var areaProyecto = await context.Areasxproyectos.Where(x => x.Idproyecto == proyecto.Id).ToListAsync();
                 foreach(var j in areaProyecto)

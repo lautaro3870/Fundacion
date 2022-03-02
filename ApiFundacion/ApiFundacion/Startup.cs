@@ -19,6 +19,9 @@ using ApiFundacion.Models.DTO;
 using ApiFundacion.Repository.Usuarios;
 using ApiFundacion.Repository.Proyectos;
 using ApiFundacion.Repository.Publicaciones;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace ApiFundacion
 {
@@ -39,6 +42,26 @@ namespace ApiFundacion
             services.AddDbContext<dena66utud3alcContext>(option =>
             option.UseNpgsql(Configuration.GetConnectionString("DefaultConnectionString")));
 
+            //var key = "Esta es una key";
+
+            //services.AddAuthentication(x =>
+            //{
+            //    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //}).AddJwtBearer(x => {
+            //    x.RequireHttpsMetadata = false;
+            //    x.SaveToken = true;
+            //    x.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuerSigningKey = true,
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
+            //        ValidateIssuer = false,
+            //        ValidateAudience = false
+            //    };
+            //});
+
+            
+            //services.AddSingleton<IUsuarioRepository>(new UsuarioRepository(key));
 
             services.AddAutoMapper(configuration => {
                 configuration.CreateMap<Area, AreasDTO>();
@@ -90,6 +113,8 @@ namespace ApiFundacion
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

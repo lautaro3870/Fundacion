@@ -1,6 +1,7 @@
 ﻿using ApiFundacion.Models;
 using ApiFundacion.Models.DTO;
 using ApiFundacion.Repository.Usuarios;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace ApiFundacion.Controllers
 {
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("Prog3")]
@@ -29,9 +31,6 @@ namespace ApiFundacion.Controllers
 
         }
 
-        
-
-
         // GET: api/<PersonalController>
         [HttpGet]
         public List<Personal> Get()
@@ -46,6 +45,20 @@ namespace ApiFundacion.Controllers
         //    return _usuarioRepository.Login(personal);
         //}
 
+        //[AllowAnonymous]
+        //[HttpPost("authenticate")]
+        //public IActionResult Authenticate([FromBody] UsuarioDTO usuario)
+        //{
+
+        //    UsuarioDTO u = new UsuarioDTO
+        //    {
+        //        Email = usuario.Email,
+        //        Password = usuario.Password
+        //    };
+
+        //    var token = _usuarioRepository.Authenticate(u);
+        //    return token != null ? Ok(token) : Unauthorized();
+        //}
 
 
         [HttpPost("Login")]

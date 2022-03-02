@@ -17,5 +17,7 @@ namespace ApiFundacion.Repository.Usuarios
         //Task<Personal> Login(Personal oPersonal);
         //List<Personal> GetUsuario();
 
+        //string Authenticate(UsuarioDTO usuario);
+
     }
 }
