@@ -396,17 +396,22 @@ namespace ApiFundacion.Repository.Proyectos
                     //var area = await context.Areas.FirstOrDefaultAsync(x => x.Id == j.Idarea);
                     var personal = personalBD.FirstOrDefault(x => x.Id == k.IdPersonal);
 
+                    var equipo = equipoxProyecto.FirstOrDefault(j => j.IdPersonal == k.IdPersonal);
+
                     if (personal != null)
                     {
                         var personalDto = new PersonalDTOId
                         {
                             Id = personal.Id,
                             Nombre = personal.Nombre,
-                            Titulo = personal.Titulo
-                           
+                            Titulo = personal.Titulo,
+                            Coordinador = equipo.Coordinador
                         };
+                        
                         listaEquipoDto.Add(personalDto);
                     }
+
+                    
                 }
                 var proyectoDto = new ProyectoIdDTO
                 {
