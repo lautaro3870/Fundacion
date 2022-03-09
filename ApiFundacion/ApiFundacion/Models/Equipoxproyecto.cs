@@ -11,7 +11,8 @@ namespace ApiFundacion.Models
         public int IdPersonal { get; set; }
         public string Texto { get; set; }
         public string FuncionTarea { get; set; }
-        public bool? Coordinador { get; set; }
+        
+        public bool Coordinador { get; set; }
         public byte[] SsmaTimestamp { get; set; }
         public char? Trial098 { get; set; }
 
