@@ -58,8 +58,10 @@ namespace ApiFundacion.Repository.Proyectos
                 Areasxproyecto area = new Areasxproyecto();
                 area.Idarea = i.Id;
                 area.Idproyecto = pro.Id;
-                
+
                 await context.Areasxproyectos.AddAsync(area);
+                
+                
                 
             }
 
@@ -70,15 +72,15 @@ namespace ApiFundacion.Repository.Proyectos
                 equipo.IdProyecto = pro.Id;
                 equipo.Coordinador = j.Coordinador;
                 equipo.SsmaTimestamp = new byte[5];
-                await context.Equipoxproyectos.AddAsync(equipo);
 
+                await context.Equipoxproyectos.AddAsync(equipo);              
             }
 
             valor = await context.SaveChangesAsync();
 
             if (valor == 0)
             {
-                throw new Exception("No se pudo insertar el proyecto");
+                throw new Exception("No se pudo insertar el proyecto con area y/o personal");
             }
             
             return true;
@@ -299,6 +301,7 @@ namespace ApiFundacion.Repository.Proyectos
                 foreach(var j in areaProyecto)
                 {
                     context.Areasxproyectos.Remove(j);
+                    await context.SaveChangesAsync();
                 }
 
                 foreach (var i in proyecto.Areas)
@@ -313,6 +316,7 @@ namespace ApiFundacion.Repository.Proyectos
                 foreach(var i in personalProyecto)
                 {
                     context.Equipoxproyectos.Remove(i);
+                    await context.SaveChangesAsync();
                 }
 
                 foreach (var j in proyecto.Personal)
