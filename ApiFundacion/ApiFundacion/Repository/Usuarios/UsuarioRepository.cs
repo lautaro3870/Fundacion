@@ -70,7 +70,7 @@ namespace ApiFundacion.Repository.Usuarios
 
         public async Task<List<Usuario>> GetUsuarioLogin()
         {
-            return await context.Usuarios.ToListAsync();
+            return await context.Usuarios.Where(x => x.Activo == true).ToListAsync();
         }
 
         public Usuario Login(Usuario oPersonal)
