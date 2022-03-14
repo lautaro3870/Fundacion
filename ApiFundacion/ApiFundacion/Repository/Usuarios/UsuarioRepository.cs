@@ -68,6 +68,11 @@ namespace ApiFundacion.Repository.Usuarios
             return context.Usuarios.ToList();
         }
 
+        public async Task<List<Usuario>> GetUsuarioLogin()
+        {
+            return await context.Usuarios.ToListAsync();
+        }
+
         public Usuario Login(Usuario oPersonal)
         {
             var personal = context.Usuarios.SingleOrDefault(x => x.Email == oPersonal.Email);

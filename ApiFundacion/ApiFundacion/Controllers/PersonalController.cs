@@ -38,6 +38,13 @@ namespace ApiFundacion.Controllers
             return _usuarioRepository.GetPersonal();
         }
 
+        [HttpGet("Usuarios")]
+        public async Task<List<Usuario>> GetUsuariosLogin()
+        {
+            return await _usuarioRepository.GetUsuarioLogin();
+        }
+
+
         // GET api/<PersonalController>/5
         //[HttpGet("Login")]
         //public Usuario Login([FromBody] Usuario personal)
