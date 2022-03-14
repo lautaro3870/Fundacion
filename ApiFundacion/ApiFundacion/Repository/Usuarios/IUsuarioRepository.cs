@@ -14,8 +14,9 @@ namespace ApiFundacion.Repository.Usuarios
         List<Usuario> GetUsuario();
         bool UpdatePass(UsuarioUpdate usuario);
         List<Personal> GetPersonal();
+
         //Task<Personal> Login(Personal oPersonal);
-        //List<Personal> GetUsuario();
+        Task<List<Usuario>> GetUsuarioLogin();
 
         //string Authenticate(UsuarioDTO usuario);
 

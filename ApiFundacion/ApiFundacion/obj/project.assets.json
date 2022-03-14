@@ -2380,11 +2380,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyectos GitHub\\Otro repo\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+      "projectUniqueName": "C:\\Proyectos GitHub\\Repo Fundacion\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
       "projectName": "ApiFundacion",
-      "projectPath": "C:\\Proyectos GitHub\\Otro repo\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+      "projectPath": "C:\\Proyectos GitHub\\Repo Fundacion\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
       "packagesPath": "C:\\Users\\Win\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyectos GitHub\\Otro repo\\Fundacion\\ApiFundacion\\ApiFundacion\\obj\\",
+      "outputPath": "C:\\Proyectos GitHub\\Repo Fundacion\\Fundacion\\ApiFundacion\\ApiFundacion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

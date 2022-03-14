@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sNwSwrdj69fA2in63oa6Gv7gUA8tCDAKNUIazgZrAL/19OjSdsEm60YmD0dDHNsNfhn8OR/Axf9YevqIKMXjmg==",
+  "dgSpecHash": "CHoU2wyIUpe75nFbxf/XMoYTbz9sv7yaW9XPJe3tJSqsEd7SBuTb0YL7KVf9MLpjbKP/Nnblf3uPxL3mGXk1FA==",
   "success": true,
-  "projectFilePath": "C:\\Proyectos GitHub\\Otro repo\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
+  "projectFilePath": "C:\\Proyectos GitHub\\Repo Fundacion\\Fundacion\\ApiFundacion\\ApiFundacion\\ApiFundacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Win\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Win\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
