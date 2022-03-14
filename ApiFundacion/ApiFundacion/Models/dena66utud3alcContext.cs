@@ -33,8 +33,8 @@ namespace ApiFundacion.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-               optionsBuilder.UseNpgsql("Server=ec2-54-208-17-82.compute-1.amazonaws.com; port=5432; user id = cvhnqxepgyjbyw; password = bf6a0decb9ebd3865e80df79e7b04de51cd2b38000be41fa27c2c9d9c454d276; database=dena66utud3alc; pooling = true; SSL Mode=Prefer;Trust Server Certificate=true;");
-               //optionsBuilder.UseNpgsql("Server=localhost; port=5433; user id = prog4; password = 12345678; database=db_Fundacion;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseNpgsql("Server=ec2-54-208-17-82.compute-1.amazonaws.com; port=5432; user id = cvhnqxepgyjbyw; password = bf6a0decb9ebd3865e80df79e7b04de51cd2b38000be41fa27c2c9d9c454d276; database=dena66utud3alc; pooling = true; SSL Mode=Prefer;Trust Server Certificate=true;");
             }
         }
 
@@ -228,7 +228,7 @@ namespace ApiFundacion.Models
                     .HasComment("TRIAL");
 
                 entity.Property(e => e.Password)
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .HasColumnName("password")
                     .HasComment("TRIAL");
 
@@ -462,6 +462,8 @@ namespace ApiFundacion.Models
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.Activo).HasColumnName("activo");
 
                 entity.Property(e => e.Email)
                     .IsRequired()
