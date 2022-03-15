@@ -146,7 +146,12 @@ namespace ApiFundacion.Repository.Usuarios
                     r.Return = personal;
                     return r;
                 }
-                return null;
+                else
+                {
+                    r.Ok = false;
+                    r.Error = "Usuario y/o password incorrectos";
+                    return r;
+                }
             }
             
         }
