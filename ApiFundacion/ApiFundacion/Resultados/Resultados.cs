@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiFundacion.Resultados
+namespace Resultados
 {
-    public class Resultados
+    public class ResultadosApi
     {
         public bool Ok { get; set; }
         public string Error { get; set; }

@@ -1,5 +1,6 @@
 ﻿using ApiFundacion.Models;
 using ApiFundacion.Models.DTO;
+using Resultados;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace ApiFundacion.Repository.Usuarios
     public interface IUsuarioRepository
     {
         Usuario Signup(Usuario oPersonal);
-        Usuario Login(Usuario oPersonal);
+        ResultadosApi Login(Usuario oPersonal);
         List<Usuario> GetUsuario();
         bool UpdatePass(UsuarioUpdate usuario);
         List<Personal> GetPersonal();

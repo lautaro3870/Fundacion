@@ -4,6 +4,7 @@ using ApiFundacion.Repository.Usuarios;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Resultados;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,15 +70,13 @@ namespace ApiFundacion.Controllers
 
 
         [HttpPost("Login")]
-        public async Task<Usuario> Login([FromBody] Usuario usuario)
+        public ResultadosApi Login([FromBody] Usuario usuario)
         {
-
             Usuario u = new Usuario
             {
                 Email = usuario.Email,
-                Password = usuario.Password
+                Password = usuario.Password              
             };
-
 
             return _usuarioRepository.Login(u);
         }
@@ -114,7 +113,8 @@ namespace ApiFundacion.Controllers
             Usuario p = new Usuario()
             {
                 Email = usuario.Email,
-                Password = usuario.Password
+                Password = usuario.Password,
+                Activo = true
             };
 
             return _usuarioRepository.Signup(p);

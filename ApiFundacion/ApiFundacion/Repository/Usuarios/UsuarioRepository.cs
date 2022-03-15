@@ -1,15 +1,11 @@
 ﻿using ApiFundacion.Models;
 using ApiFundacion.Models.DTO;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+using Resultados;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using static ApiFundacion.Resultados.Resultados;
 
 
 
@@ -19,6 +15,7 @@ namespace ApiFundacion.Repository.Usuarios
     {
         private readonly dena66utud3alcContext context;
         private readonly string key;
+        
 
         private readonly IDictionary<string, string> users = new Dictionary<string, string>
         {
@@ -73,17 +70,18 @@ namespace ApiFundacion.Repository.Usuarios
             return await context.Usuarios.Where(x => x.Activo == true).ToListAsync();
         }
 
-        public Usuario Login(Usuario oPersonal)
-        {
-            var personal = context.Usuarios.SingleOrDefault(x => x.Email == oPersonal.Email);
-            bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
+        //public Usuario Login(Usuario oPersonal)
+        //{
+        //    var r = new ResultadosApi();
+        //    var personal = context.Usuarios.SingleOrDefault(x => x.Email == oPersonal.Email);
+        //    bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
 
-            if (isValidPassword)
-            {
-                return personal;
-            }
-            return null;
-        }
+        //    if (isValidPassword)
+        //    {
+        //        return personal;
+        //    }
+        //    return null;
+        //}
 
         //public async Task<Personal> Login(Personal oPersonal)
         //{
@@ -125,6 +123,32 @@ namespace ApiFundacion.Repository.Usuarios
             }
             return false;
 
+        }
+
+        public ResultadosApi Login(Usuario oPersonal)
+        {
+            var r = new ResultadosApi();
+            var personal = context.Usuarios.SingleOrDefault(x => x.Email == oPersonal.Email);
+            bool isValidPassword = BCrypt.Net.BCrypt.Verify(oPersonal.Password, personal.Password);
+
+            if (personal.Activo == false)
+            {
+                r.Error = "Usuario bloqueado";
+                r.Ok = false;
+                return r;
+            }
+            else
+            {
+                if (isValidPassword)
+                {
+                    r.Ok = true;
+                    r.InfoAdicional = "Login exitoso";
+                    r.Return = personal;
+                    return r;
+                }
+                return null;
+            }
+            
         }
 
         //public Personal Signup(Personal oPersonal)
