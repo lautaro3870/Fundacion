@@ -220,7 +220,7 @@ namespace ApiFundacion.Repository.Proyectos
             }
             if(filters.Area != null)
             {
-                listProyectoDto = listProyectoDto.Where(x => x.ListaAreas.Equals(filters.Area)).ToList();
+                areasxproyectosBD = areasxproyectosBD.Where(x => x.Idarea == filters.Area).ToList();
             }
             if (filters.Departamento != null)
             {
