@@ -166,6 +166,7 @@ namespace ApiFundacion.Repository.Proyectos
                     {
                         var areaDto = new AreasDTO
                         {
+                            Id = area.Id,
                             Area1 = area.Area1
                         };
                         listaAreaDto.Add(areaDto);
@@ -216,6 +217,14 @@ namespace ApiFundacion.Repository.Proyectos
             if (filters.Pais != null)
             {
                 listProyectoDto = listProyectoDto.Where(x => x.PaisRegion == filters.Pais).ToList();
+            }
+            if(filters.Area != null)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.ListaAreas.Equals(filters.Area)).ToList();
+            }
+            if (filters.Departamento != null)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.Departamentos == filters.Departamento).ToList();
             }
 
             return listProyectoDto;
