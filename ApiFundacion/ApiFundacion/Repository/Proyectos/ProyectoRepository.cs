@@ -194,13 +194,18 @@ namespace ApiFundacion.Repository.Proyectos
                 listProyectoDto = listProyectoDto.Where(x => x.Id == filters.Id).ToList();
             }
 
-            if (filters.AnioInicio != null)
+            //if (filters.AnioInicio != null)
+            //{
+            //     listProyectoDto = listProyectoDto.Where(x => x.AnioInicio == filters.AnioInicio).ToList();
+            //}
+            //if (filters.AnioFin != null)
+            //{
+            //    listProyectoDto = listProyectoDto.Where(x => x.AnioFinalizacion == filters.AnioFin).ToList();
+            //}
+
+            if (filters.AnioInicio != null && filters.AnioInicio != null && filters.AnioInicio <= filters.AnioFin)
             {
-                 listProyectoDto = listProyectoDto.Where(x => x.AnioInicio == filters.AnioInicio).ToList();
-            }
-            if (filters.AnioFin != null)
-            {
-                listProyectoDto = listProyectoDto.Where(x => x.AnioFinalizacion == filters.AnioFin).ToList();
+                listProyectoDto = listProyectoDto.Where(x => x.AnioInicio >= filters.AnioInicio && x.AnioFinalizacion <= filters.AnioFin).ToList();
             }
             if (filters.MesInicio != null)
             {
