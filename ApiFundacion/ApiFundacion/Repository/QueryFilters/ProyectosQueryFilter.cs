@@ -14,5 +14,7 @@ namespace ApiFundacion.Repository.QueryFilters
         public int? MesFin { get; set; }
         public int? AnioInicio { get; set; }
         public int? AnioFin { get; set; }
+        public int? Area { get; set; }
+        public string Departamento { get; set; }
     }
 }
