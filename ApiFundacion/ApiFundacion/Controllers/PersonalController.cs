@@ -84,40 +84,14 @@ namespace ApiFundacion.Controllers
         [HttpPut("Update")]
         public bool Update(UsuarioUpdate usuario)
         {
-            UsuarioUpdate u = new UsuarioUpdate
-            {
-                Email = usuario.Email,
-                PasswordVieja = usuario.PasswordVieja,
-                PasswordNueva = usuario.PasswordNueva
-            };
-
-            return _usuarioRepository.UpdatePass(u);
+            return _usuarioRepository.UpdatePass(usuario);
         }
 
         // POST api/<PersonalController>
         [HttpPost]
         public Usuario Singup([FromBody] Usuario usuario)
         {
-            //var email = personal.Email;
-            //var contra = personal.Password;
-
-            //try
-            //{
-            //    var usuario = context.Personals.FirstOrDefault(x => x.Email == email && x.Password == contra);
-            //    return usuario;
-            //} catch (Exception ex)
-            //{
-            //    return null;
-            //}
-
-            Usuario p = new Usuario()
-            {
-                Email = usuario.Email,
-                Password = usuario.Password,
-                Activo = true
-            };
-
-            return _usuarioRepository.Signup(p);
+            return _usuarioRepository.Signup(usuario);
         }
 
 
