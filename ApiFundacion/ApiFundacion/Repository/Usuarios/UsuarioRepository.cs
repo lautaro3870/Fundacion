@@ -103,6 +103,13 @@ namespace ApiFundacion.Repository.Usuarios
 
         public Usuario Signup(Usuario oPersonal)
         {
+            Usuario p = new Usuario()
+            {
+                Email = oPersonal.Email,
+                Password = oPersonal.Password,
+                Activo = true
+            };
+
             oPersonal.Password = BCrypt.Net.BCrypt.HashPassword(oPersonal.Password);
             context.Usuarios.Add(oPersonal);
             context.SaveChanges();
@@ -111,6 +118,13 @@ namespace ApiFundacion.Repository.Usuarios
 
         public bool UpdatePass(UsuarioUpdate usuario)
         {
+            UsuarioUpdate u = new UsuarioUpdate
+            {
+                Email = usuario.Email,
+                PasswordVieja = usuario.PasswordVieja,
+                PasswordNueva = usuario.PasswordNueva
+            };
+
             var usu = context.Usuarios.SingleOrDefault(x => x.Email == usuario.Email);
             bool isValidPassword = BCrypt.Net.BCrypt.Verify(usuario.PasswordVieja, usu.Password);
 
