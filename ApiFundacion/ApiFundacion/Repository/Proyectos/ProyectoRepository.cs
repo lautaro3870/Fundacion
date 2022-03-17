@@ -225,7 +225,42 @@ namespace ApiFundacion.Repository.Proyectos
             }
             if(filters.Area != null)
             {
-                areasxproyectosBD = areasxproyectosBD.Where(x => x.Idarea == filters.Area).ToList();
+                //areasxproyectosBD = areasxproyectosBD.Where(x => x.Idarea == filters.Area).ToList();
+
+                var listAreaDtoFilter = new List<AreasDTO>();
+                var listaProyectoDtoFilter = new List<ProyectoDTO>();
+
+                foreach(var i in listProyectoDto)
+                {
+                    
+                    foreach(var x in i.ListaAreas)
+                    {
+                        if(x.Id == filters.Area)
+                        {
+                            var a = new AreasDTO
+                            {
+                                Id = x.Id,
+                                Area1 = x.Area1
+                            };
+                            listAreaDtoFilter.Add(a);
+                            var pDto = new ProyectoDTO
+                            {
+                                Id = i.Id,
+                                Titulo = i.Titulo,
+                                AnioFinalizacion = i.AnioFinalizacion,
+                                AnioInicio = i.AnioInicio,
+                                Departamentos = i.Departamentos,
+                                ListaAreas = listAreaDtoFilter,
+                                FichaLista = i.FichaLista,
+                                MesFinalizacion = i.MesFinalizacion,
+                                MesInicio = i.MesInicio,
+                                PaisRegion = i.PaisRegion
+                            };
+                            listaProyectoDtoFilter.Add(pDto);
+                        }
+                    }
+                }
+                listProyectoDto = listaProyectoDtoFilter;    
             }
             if (filters.Departamento != null)
             {
