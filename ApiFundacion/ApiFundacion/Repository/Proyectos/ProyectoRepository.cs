@@ -225,42 +225,60 @@ namespace ApiFundacion.Repository.Proyectos
             }
             if(filters.Area != null)
             {
-                //areasxproyectosBD = areasxproyectosBD.Where(x => x.Idarea == filters.Area).ToList();
+                areasxproyectosBD = areasxproyectosBD.Where(x => x.Idarea == filters.Area).ToList();
 
-                var listAreaDtoFilter = new List<AreasDTO>();
+                
                 var listaProyectoDtoFilter = new List<ProyectoDTO>();
+                
+                Proyecto p = null;
 
-                foreach(var i in listProyectoDto)
+                foreach (var j in areasxproyectosBD)
                 {
-                    
-                    foreach(var x in i.ListaAreas)
+                    var listAreaDtoFilter = new List<AreasDTO>();
+                    var areas = new List<Area>();
+                    p = await context.Proyectos.FirstOrDefaultAsync(x => x.Id == j.Idproyecto);
+                    //var listaArea = await context.Areas.Where(x => x.Id == j.Idarea).ToListAsync();
+
+                    foreach(var k in p.Areasxproyectos)
                     {
-                        if(x.Id == filters.Area)
-                        {
-                            var a = new AreasDTO
-                            {
-                                Id = x.Id,
-                                Area1 = x.Area1
-                            };
-                            listAreaDtoFilter.Add(a);
-                            var pDto = new ProyectoDTO
-                            {
-                                Id = i.Id,
-                                Titulo = i.Titulo,
-                                AnioFinalizacion = i.AnioFinalizacion,
-                                AnioInicio = i.AnioInicio,
-                                Departamentos = i.Departamentos,
-                                ListaAreas = listAreaDtoFilter,
-                                FichaLista = i.FichaLista,
-                                MesFinalizacion = i.MesFinalizacion,
-                                MesInicio = i.MesInicio,
-                                PaisRegion = i.PaisRegion
-                            };
-                            listaProyectoDtoFilter.Add(pDto);
-                        }
+
+                        var area = await context.Areas.FirstOrDefaultAsync(x => x.Id == k.Idarea);
+                        areas.Add(area);
                     }
+                    
+                    foreach(var l in areas)
+                    {
+                        var areaDTO = new AreasDTO
+                        {
+                            Id = l.Id,
+                            Area1 = l.Area1
+                        };
+                        listAreaDtoFilter.Add(areaDTO);
+
+                    }
+
+                    var pDto = new ProyectoDTO
+                    {
+                        Id = p.Id,
+                        Titulo = p.Titulo,
+                        AnioFinalizacion = p.AnioFinalizacion,
+                        AnioInicio = p.AnioInicio,
+                        Departamentos = p.Departamento,
+                        ListaAreas = listAreaDtoFilter,
+                        FichaLista = p.FichaLista,
+                        MesFinalizacion = p.MesFinalizacion,
+                        MesInicio = p.MesInicio,
+                        PaisRegion = p.PaisRegion
+                    };
+                    listaProyectoDtoFilter.Add(pDto);
+                    areas.Clear();
                 }
-                listProyectoDto = listaProyectoDtoFilter;    
+                
+                
+                listProyectoDto = listaProyectoDtoFilter;
+
+                //listProyectoDto = listProyectoDto.Where(x => x.ListaAreas.Where(x => x.Id == 17).ToList());
+                
             }
             if (filters.Departamento != null)
             {
