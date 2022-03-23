@@ -100,7 +100,7 @@ namespace ApiFundacion.Repository.Usuarios
 
         //}
 
-        //comentario
+        
 
 
         public Usuario Signup(Usuario oPersonal)
