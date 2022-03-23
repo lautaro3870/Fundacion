@@ -189,47 +189,12 @@ namespace ApiFundacion.Repository.Proyectos
                 listProyectoDto.Add(proyectoDto);
             }
 
-            if (filters.Id != null)
-            {
-                listProyectoDto = listProyectoDto.Where(x => x.Id == filters.Id).ToList();
-            }
-
-            //if (filters.AnioInicio != null)
-            //{
-            //     listProyectoDto = listProyectoDto.Where(x => x.AnioInicio == filters.AnioInicio).ToList();
-            //}
-            //if (filters.AnioFin != null)
-            //{
-            //    listProyectoDto = listProyectoDto.Where(x => x.AnioFinalizacion == filters.AnioFin).ToList();
-            //}
-
-            if (filters.AnioInicio != null && filters.AnioInicio != null && filters.AnioInicio <= filters.AnioFin)
-            {
-                listProyectoDto = listProyectoDto.Where(x => x.AnioInicio >= filters.AnioInicio && x.AnioFinalizacion <= filters.AnioFin).ToList();
-            }
-            if (filters.MesInicio != null)
-            {
-                listProyectoDto = listProyectoDto.Where(x => x.MesInicio == filters.MesInicio).ToList();
-            }
-            if (filters.MesFin != null)
-            {
-                listProyectoDto = listProyectoDto.Where(x => x.MesFinalizacion == filters.MesFin).ToList();
-            }
-            if (filters.Titulo != null)
-            {
-                listProyectoDto = listProyectoDto.Where(x => x.Titulo == filters.Titulo).ToList();
-            }
-            if (filters.Pais != null)
-            {
-                listProyectoDto = listProyectoDto.Where(x => x.PaisRegion == filters.Pais).ToList();
-            }
-            if(filters.Area != null)
+            if (filters.Area != null)
             {
                 areasxproyectosBD = areasxproyectosBD.Where(x => x.Idarea == filters.Area).ToList();
 
-                
                 var listaProyectoDtoFilter = new List<ProyectoDTO>();
-                
+
                 Proyecto p = null;
 
                 foreach (var j in areasxproyectosBD)
@@ -239,14 +204,14 @@ namespace ApiFundacion.Repository.Proyectos
                     p = await context.Proyectos.FirstOrDefaultAsync(x => x.Id == j.Idproyecto);
                     //var listaArea = await context.Areas.Where(x => x.Id == j.Idarea).ToListAsync();
 
-                    foreach(var k in p.Areasxproyectos)
+                    foreach (var k in p.Areasxproyectos)
                     {
 
                         var area = await context.Areas.FirstOrDefaultAsync(x => x.Id == k.Idarea);
                         areas.Add(area);
                     }
-                    
-                    foreach(var l in areas)
+
+                    foreach (var l in areas)
                     {
                         var areaDTO = new AreasDTO
                         {
@@ -270,21 +235,44 @@ namespace ApiFundacion.Repository.Proyectos
                         MesInicio = p.MesInicio,
                         PaisRegion = p.PaisRegion
                     };
+                    //listProyectoDto.Add(pDto);
                     listaProyectoDtoFilter.Add(pDto);
                     areas.Clear();
                 }
-                
-                
-                listProyectoDto = listaProyectoDtoFilter;
 
-                //listProyectoDto = listProyectoDto.Where(x => x.ListaAreas.Where(x => x.Id == 17).ToList());
-                
+                listProyectoDto = listaProyectoDtoFilter;
+            }
+
+            if (filters.Id != null)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.Id == filters.Id).ToList();
+            }
+
+            if (filters.AnioInicio != null && filters.AnioInicio != null && filters.AnioInicio <= filters.AnioFin)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.AnioInicio >= filters.AnioInicio && x.AnioFinalizacion <= filters.AnioFin).ToList();
+            }
+            if (filters.MesInicio != null)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.MesInicio == filters.MesInicio).ToList();
+            }
+            if (filters.MesFin != null)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.MesFinalizacion == filters.MesFin).ToList();
+            }
+            if (filters.Titulo != null)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.Titulo == filters.Titulo).ToList();
+            }
+            if (filters.Pais != null)
+            {
+                listProyectoDto = listProyectoDto.Where(x => x.PaisRegion == filters.Pais).ToList();
             }
             if (filters.Departamento != null)
             {
                 listProyectoDto = listProyectoDto.Where(x => x.Departamentos == filters.Departamento).ToList();
             }
-
+            
             return listProyectoDto;
         }
 
