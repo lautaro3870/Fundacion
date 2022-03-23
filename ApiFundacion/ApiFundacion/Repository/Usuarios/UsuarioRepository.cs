@@ -100,6 +100,8 @@ namespace ApiFundacion.Repository.Usuarios
 
         //}
 
+        
+
 
         public Usuario Signup(Usuario oPersonal)
         {
