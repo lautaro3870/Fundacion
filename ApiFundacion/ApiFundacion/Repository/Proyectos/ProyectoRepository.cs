@@ -61,8 +61,6 @@ namespace ApiFundacion.Repository.Proyectos
 
                 await context.Areasxproyectos.AddAsync(area);
                 
-                
-                
             }
 
             foreach (var j in proyecto.Personal)
@@ -85,64 +83,6 @@ namespace ApiFundacion.Repository.Proyectos
             
             return true;
         }
-
-        //public async Task<List<ProyectoDTO>> Delete(int id)
-        //{
-        //    var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true)).OrderBy(x => x.Id).ToListAsync();
-        //    var proyecto = await context.Proyectos.FirstOrDefaultAsync(x => x.Id == id);
-        //    var areasxproyectosBD = await context.Areasxproyectos.ToListAsync();
-        //    var areaBD = await context.Areas.ToListAsync();
-
-        //    if (proyectos == null)
-        //    {
-        //        throw new Exception("Proyecto no encontrado");
-        //    }
-        //    else
-        //    {
-        //        proyecto.Activo = false;
-        //        //context.Proyectos.Update(proyecto);
-        //        await context.SaveChangesAsync();
-        //        var proyectosDto = new List<ProyectoDTO>();
-        //        var listaAreaDto = new List<AreasDTO>();
-                
-        //        foreach (var i in proyectos)            
-        //        {
-        //            //var areaxProyecto = await context.Areasxproyectos.Where(x => x.Idproyecto == i.Id).ToListAsync();
-        //            var areaxProyecto = areasxproyectosBD.Where(x => x.Idproyecto == i.Id).ToList();
-        //            foreach (var j in areaxProyecto)
-        //            {
-        //                //var area = await context.Areas.FirstOrDefaultAsync(x => x.Id == j.Idarea);
-        //                var area = areaBD.FirstOrDefault(x => x.Id == j.Idarea);
-
-        //                if (area != null)
-        //                {
-        //                    var areaDto = new AreasDTO
-        //                    {
-        //                        Area1 = area.Area1
-        //                    };
-        //                    listaAreaDto.Add(areaDto);
-        //                }
-        //            }
-        //            var proyectoDto = new ProyectoDTO
-        //            {
-        //                Id = i.Id,
-        //                Titulo = i.Titulo,
-        //                AnioFinalizacion = i.AnioFinalizacion,
-        //                AnioInicio = i.AnioInicio,
-        //                Departamentos = i.Departamento,
-        //                ListaAreas = listaAreaDto,
-        //                FichaLista = i.FichaLista,
-        //                MesFinalizacion = i.MesFinalizacion,
-        //                MesInicio = i.MesInicio,
-        //                PaisRegion = i.PaisRegion
-        //            };
-
-        //            proyectosDto.Add(proyectoDto);
-        //        }
-        //        return proyectosDto;
-        //    }
-
-        //}
 
         public async Task<List<ProyectoDTO>> GetProyectosFilter(ProyectosQueryFilter filters)
         {
@@ -183,7 +123,8 @@ namespace ApiFundacion.Repository.Proyectos
                     FichaLista = i.FichaLista,
                     MesFinalizacion = i.MesFinalizacion,
                     MesInicio = i.MesInicio,
-                    PaisRegion = i.PaisRegion
+                    PaisRegion = i.PaisRegion,
+                    MontoContrato = i.MontoContrato
                 };
 
                 listProyectoDto.Add(proyectoDto);
@@ -233,7 +174,8 @@ namespace ApiFundacion.Repository.Proyectos
                         FichaLista = p.FichaLista,
                         MesFinalizacion = p.MesFinalizacion,
                         MesInicio = p.MesInicio,
-                        PaisRegion = p.PaisRegion
+                        PaisRegion = p.PaisRegion,
+                        MontoContrato = p.MontoContrato
                     };
                     //listProyectoDto.Add(pDto);
                     listaProyectoDtoFilter.Add(pDto);
@@ -276,31 +218,33 @@ namespace ApiFundacion.Repository.Proyectos
             return listProyectoDto;
         }
 
-        public async Task<List<ProyectoDTO>> GetProyectos()
+        public async Task<List<ProyectoTablaDTO>> GetProyectos()
         {
             //return await context.Proyectos.ToListAsync();
             var proyectos = await context.Proyectos.OrderBy(x => x.Id).Where(j => j.Activo == true).ToListAsync();
+            var areaxProyectoDB = await context.Areasxproyectos.ToListAsync();
+            var areaDB = await context.Areas.ToListAsync();
 
-            var listProyectoDto = new List<ProyectoDTO>();
+            var listProyectoDto = new List<ProyectoTablaDTO>();
             
             foreach (var i in proyectos)
             {
-                var areaxProyecto = await context.Areasxproyectos.Where(x => x.Idproyecto == i.Id).ToListAsync();
-                var listaAreaDto = new List<AreasDTO>();
+                var areaxProyecto = areaxProyectoDB.Where(x => x.Idproyecto == i.Id).ToList();
+                var listaAreaDto = new List<AreaTablaDTO>();
                 foreach (var j in areaxProyecto)
                 {
-                    var area = await context.Areas.FirstOrDefaultAsync(x => x.Id == j.Idarea);
-                    
+                    var area = areaDB.FirstOrDefault(x => x.Id == j.Idarea);
+
                     if (area != null)
                     {
-                        var areaDto = new AreasDTO
+                        var areaDto = new AreaTablaDTO
                         {
                             Area1 = area.Area1
                         };
                         listaAreaDto.Add(areaDto);
                     }
                 }
-                var proyectoDto = new ProyectoDTO
+                var proyectoDto = new ProyectoTablaDTO
                 {
                     Id = i.Id,
                     Titulo = i.Titulo,

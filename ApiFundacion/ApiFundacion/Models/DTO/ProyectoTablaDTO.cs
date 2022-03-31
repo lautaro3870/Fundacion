@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiFundacion.Models.DTO
 {
-    public class ProyectoDTO
+    public class ProyectoTablaDTO
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
@@ -14,14 +14,11 @@ namespace ApiFundacion.Models.DTO
         public int? AnioInicio { get; set; }
         public int? MesFinalizacion { get; set; }
         public int? AnioFinalizacion { get; set; }
-        public string MontoContrato { get; set; }
         //public string ConsultoresAsoc { get; set; }
         public bool? FichaLista { get; set; }
 
-        public List<AreasDTO> ListaAreas { get; set; }
+        public List<AreaTablaDTO> ListaAreas { get; set; }
 
         public string Departamentos { get; set; }
-        
-        
     }
 }

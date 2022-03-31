@@ -40,6 +40,12 @@ namespace ApiFundacion.Controllers
             return await proyectorepository.GetProyectosFilter(filters);
         }
 
+        [HttpGet("tabla")]
+        public async Task<ActionResult<List<ProyectoTablaDTO>>> GetProyectos()
+        {
+            return await proyectorepository.GetProyectos();
+        }
+
         // GET api/<ProyectoController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult<List<ProyectoIdDTO>>> GetProyectoId(int id)
