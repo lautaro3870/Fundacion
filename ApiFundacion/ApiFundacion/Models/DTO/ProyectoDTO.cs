@@ -15,6 +15,7 @@ namespace ApiFundacion.Models.DTO
         public int? MesFinalizacion { get; set; }
         public int? AnioFinalizacion { get; set; }
         public string MontoContrato { get; set; }
+        public string Moneda { get; set; }
         //public string ConsultoresAsoc { get; set; }
         public bool? FichaLista { get; set; }
 

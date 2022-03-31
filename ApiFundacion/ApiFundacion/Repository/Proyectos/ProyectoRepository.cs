@@ -124,7 +124,8 @@ namespace ApiFundacion.Repository.Proyectos
                     MesFinalizacion = i.MesFinalizacion,
                     MesInicio = i.MesInicio,
                     PaisRegion = i.PaisRegion,
-                    MontoContrato = i.MontoContrato
+                    MontoContrato = i.MontoContrato,
+                    Moneda = i.Moneda
                 };
 
                 listProyectoDto.Add(proyectoDto);
@@ -175,7 +176,8 @@ namespace ApiFundacion.Repository.Proyectos
                         MesFinalizacion = p.MesFinalizacion,
                         MesInicio = p.MesInicio,
                         PaisRegion = p.PaisRegion,
-                        MontoContrato = p.MontoContrato
+                        MontoContrato = p.MontoContrato,
+                        Moneda = p.Moneda
                     };
                     //listProyectoDto.Add(pDto);
                     listaProyectoDtoFilter.Add(pDto);
