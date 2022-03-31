@@ -14,7 +14,7 @@ namespace ApiFundacion.Repository.Proyectos
         Task<bool> Update(ProyectoUpdate proyecto);
         Task<bool> Delete(int id);
         Task<List<ProyectoIdDTO>> GetProyectosId(int id);
-        Task<List<ProyectoDTO>> GetProyectos();
+        Task<List<ProyectoTablaDTO>> GetProyectos();
         Task<List<ProyectoDTO>> GetProyectosFilter(ProyectosQueryFilter filters);
 
         //Task<List<ProyectoDTO>> Delete(int id);
