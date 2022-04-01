@@ -317,6 +317,10 @@ namespace ApiFundacion.Models
                     .HasColumnName("id_area")
                     .HasComment("TRIAL");
 
+                entity.Property(e => e.Link)
+                    .HasMaxLength(200)
+                    .HasColumnName("link");
+
                 entity.Property(e => e.MesFinalizacion)
                     .HasColumnName("mes_finalizacion")
                     .HasComment("TRIAL");

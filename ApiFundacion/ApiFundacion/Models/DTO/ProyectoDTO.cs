@@ -18,11 +18,10 @@ namespace ApiFundacion.Models.DTO
         public string Moneda { get; set; }
         //public string ConsultoresAsoc { get; set; }
         public bool? FichaLista { get; set; }
-
         public List<AreasDTO> ListaAreas { get; set; }
-
         public string Departamentos { get; set; }
-        
-        
+        public string Link { get; set; }
+
+
     }
 }
