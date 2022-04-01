@@ -43,6 +43,7 @@ namespace ApiFundacion.Repository.Proyectos
             pro.Contratante = proyecto.Contratante;
             pro.Dirección = proyecto.Dirección;
             pro.FichaLista = proyecto.FichaLista;
+            pro.Link = proyecto.Link;
 
 
             await context.Proyectos.AddAsync(pro);
@@ -125,7 +126,8 @@ namespace ApiFundacion.Repository.Proyectos
                     MesInicio = i.MesInicio,
                     PaisRegion = i.PaisRegion,
                     MontoContrato = i.MontoContrato,
-                    Moneda = i.Moneda
+                    Moneda = i.Moneda,
+                    Link = i.Link
                 };
 
                 listProyectoDto.Add(proyectoDto);
@@ -177,7 +179,8 @@ namespace ApiFundacion.Repository.Proyectos
                         MesInicio = p.MesInicio,
                         PaisRegion = p.PaisRegion,
                         MontoContrato = p.MontoContrato,
-                        Moneda = p.Moneda
+                        Moneda = p.Moneda,
+                        Link = p.Link
                     };
                     //listProyectoDto.Add(pDto);
                     listaProyectoDtoFilter.Add(pDto);
@@ -297,6 +300,7 @@ namespace ApiFundacion.Repository.Proyectos
                 pro.Contratante = proyecto.Contratante ?? pro.Contratante;
                 pro.Dirección = proyecto.Dirección ?? pro.Dirección;
                 pro.FichaLista = proyecto.FichaLista ?? pro.FichaLista;
+                pro.Link = proyecto.Link ?? pro.Link;
 
                 var areaProyecto = await context.Areasxproyectos.Where(x => x.Idproyecto == proyecto.Id).ToListAsync();
                 foreach(var j in areaProyecto)
