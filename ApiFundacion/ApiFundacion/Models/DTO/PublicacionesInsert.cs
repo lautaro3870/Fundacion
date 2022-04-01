@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ApiFundacion.Models.DTO
+{
+    public class PublicacionesInsert
+    {
+        public int? IdProyecto { get; set; }
+        public string Publicacion { get; set; }
+        public string Año { get; set; }
+        public string Codigobcs { get; set; }
+    }
+}

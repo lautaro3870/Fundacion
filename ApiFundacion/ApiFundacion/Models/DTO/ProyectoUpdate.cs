@@ -34,5 +34,6 @@ namespace ApiFundacion.Models.DTO
         public string Link { get; set; }
         public List<AreaInsert> Areas { get; set; }
         public List<PersonalInsert> Personal { get; set; }
+        public List<PublicacionesUpdate> Publicaciones { get; set; }
     }
 }

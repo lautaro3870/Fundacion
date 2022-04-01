@@ -75,6 +75,18 @@ namespace ApiFundacion.Repository.Proyectos
                 await context.Equipoxproyectos.AddAsync(equipo);              
             }
 
+            foreach (var t in proyecto.Publicaciones)
+            {
+                Publicacionesxproyecto publi = new Publicacionesxproyecto();
+                publi.IdProyecto = pro.Id;
+                publi.Publicacion = t.Publicacion;
+                publi.Año = t.Año;
+                publi.Codigobcs = t.Codigobcs;
+
+                await context.Publicacionesxproyectos.AddAsync(publi);
+                await context.SaveChangesAsync();
+            }
+
             valor = await context.SaveChangesAsync();
 
             if (valor == 0)
@@ -332,7 +344,27 @@ namespace ApiFundacion.Repository.Proyectos
                     equipo.Coordinador = j.Coordinador;
                     equipo.SsmaTimestamp = new byte[5];
                     await context.Equipoxproyectos.AddAsync(equipo);
+                }
 
+                var publiProyecto = await context.Publicacionesxproyectos.Where(x => x.IdProyecto == proyecto.Id).ToListAsync();
+
+                foreach (var item in publiProyecto)
+                {
+                    context.Publicacionesxproyectos.Remove(item);
+                    await context.SaveChangesAsync();
+                }
+
+                foreach (var t in proyecto.Publicaciones)
+                {
+                    Publicacionesxproyecto publi = new Publicacionesxproyecto();
+                    publi.IdPublicacion = t.IdPublicacion;
+                    publi.IdProyecto = pro.Id;
+                    publi.Publicacion = t.Publicacion;
+                    publi.Año = t.Año;
+                    publi.Codigobcs = t.Codigobcs;
+
+                    await context.Publicacionesxproyectos.AddAsync(publi);
+                    await context.SaveChangesAsync();
                 }
 
                 context.Proyectos.Update(pro);
