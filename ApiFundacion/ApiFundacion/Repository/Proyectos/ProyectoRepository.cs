@@ -446,7 +446,8 @@ namespace ApiFundacion.Repository.Proyectos
                     ConsultoresAsoc = i.ConsultoresAsoc,
                     NroContrato = i.NroContrato,
                     Dirección = i.Dirección,
-                    Contratante = i.Contratante
+                    Contratante = i.Contratante,
+                    Link = i.Link
                 };
 
                 listProyectoDto.Add(proyectoDto);
