@@ -34,5 +34,7 @@ namespace ApiFundacion.Models.DTO
 
         public List<AreasDTO> ListaAreas { get; set; }
         public List<PersonalDTOId> ListaPersonal { get; set; }
+
+        public List<PublicacionesDTO> ListaPublicaciones { get; set; }
     }
 }

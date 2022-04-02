@@ -403,8 +403,10 @@ namespace ApiFundacion.Repository.Proyectos
             var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true) && i.Id == id).OrderBy(x => x.Id).ToListAsync();
             var areasxproyectosBD = await context.Areasxproyectos.ToListAsync();
             var personalxproyectoBD = await context.Equipoxproyectos.ToListAsync();
+            var publicacionxProyectoBD = await context.Publicacionesxproyectos.ToListAsync();
             var areaBD = await context.Areas.ToListAsync();
             var personalBD = await context.Personals.ToListAsync();
+            var publiBD = await context.Publicacionesxproyectos.ToListAsync();
 
             var listProyectoDto = new List<ProyectoIdDTO>();
 
@@ -413,8 +415,10 @@ namespace ApiFundacion.Repository.Proyectos
                 //var areaxProyecto = await context.Areasxproyectos.Where(x => x.Idproyecto == i.Id).ToListAsync();
                 var areaxProyecto = areasxproyectosBD.Where(x => x.Idproyecto == i.Id).ToList();
                 var equipoxProyecto = personalxproyectoBD.Where(x => x.IdProyecto == i.Id).ToList();
+                var publicacionxProyecto = publicacionxProyectoBD.Where(x => x.IdProyecto == i.Id).ToList();
                 var listaAreaDto = new List<AreasDTO>();
                 var listaEquipoDto = new List<PersonalDTOId>();
+                var listaPublicacionesDto = new List<PublicacionesDTO>();
 
                 foreach (var j in areaxProyecto)
                 {
@@ -451,9 +455,25 @@ namespace ApiFundacion.Repository.Proyectos
                         
                         listaEquipoDto.Add(personalDto);
                     }
+                }
 
+                foreach (var item in publicacionxProyecto)
+                {
+                    var publicacion = publiBD.FirstOrDefault(x => x.IdPublicacion == item.IdPublicacion);
+                    if (publicacion != null)
+                    {
+                        var publiDTO = new PublicacionesDTO
+                        {
+                            IdPublicacion = item.IdPublicacion,
+                            IdProyecto = item.IdProyecto,
+                            Año = item.Año,
+                            Codigobcs = item.Codigobcs
+                        };
+                        listaPublicacionesDto.Add(publiDTO);
+                    }
                     
                 }
+
                 var proyectoDto = new ProyectoIdDTO
                 {
                     Id = i.Id,
@@ -479,7 +499,8 @@ namespace ApiFundacion.Repository.Proyectos
                     NroContrato = i.NroContrato,
                     Dirección = i.Dirección,
                     Contratante = i.Contratante,
-                    Link = i.Link
+                    Link = i.Link,
+                    ListaPublicaciones = listaPublicacionesDto
                 };
 
                 listProyectoDto.Add(proyectoDto);
