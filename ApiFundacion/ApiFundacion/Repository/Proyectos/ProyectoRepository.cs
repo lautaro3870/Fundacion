@@ -467,7 +467,8 @@ namespace ApiFundacion.Repository.Proyectos
                             IdPublicacion = item.IdPublicacion,
                             IdProyecto = item.IdProyecto,
                             Año = item.Año,
-                            Codigobcs = item.Codigobcs
+                            Codigobcs = item.Codigobcs,
+                            Publicacion = item.Publicacion
                         };
                         listaPublicacionesDto.Add(publiDTO);
                     }
