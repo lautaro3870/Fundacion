@@ -10,6 +10,7 @@ namespace ApiFundacion.Repository.Publicaciones
     public interface IPublicacionesRepository
     {
         Task<List<Publicacionesxproyecto>> GetPublicaciones();
+        Task<Publicacionesxproyecto> GetPublicacionId(int id);
         Task<bool> Insert(PublicacionesDTO publicacion);
         Task<bool> Update(PublicacionesDTO publicacion);
     }

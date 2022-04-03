@@ -33,9 +33,9 @@ namespace ApiFundacion.Controllers
 
         // GET api/<PublicacionesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<Publicacionesxproyecto> GetId(int id)
         {
-            return "value";
+            return await publicacionesRepository.GetPublicacionId(id);
         }
 
         // POST api/<PublicacionesController>
