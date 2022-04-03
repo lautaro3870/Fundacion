@@ -21,6 +21,11 @@ namespace ApiFundacion.Repository.Publicaciones
             return await context.Publicacionesxproyectos.ToListAsync();
         }
 
+        public async Task<Publicacionesxproyecto> GetPublicacionId(int id)
+        {
+            return await context.Publicacionesxproyectos.FirstOrDefaultAsync(x => x.IdPublicacion == id);
+        }
+
         public async Task<bool> Insert(PublicacionesDTO publicacion)
         {
             var p = new Publicacionesxproyecto
