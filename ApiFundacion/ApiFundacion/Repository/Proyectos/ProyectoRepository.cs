@@ -99,7 +99,7 @@ namespace ApiFundacion.Repository.Proyectos
 
         public async Task<List<ProyectoDTO>> GetProyectosFilter(ProyectosQueryFilter filters)
         {
-            var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true)).OrderBy(x => x.Id).ToListAsync();
+            var proyectos = await context.Proyectos.Where(i => i.Activo.Equals(true)).OrderByDescending(x => x.Id).ToListAsync();
             var areasxproyectosBD = await context.Areasxproyectos.ToListAsync();
             var areaBD = await context.Areas.ToListAsync();
 
