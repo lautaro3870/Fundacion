@@ -57,7 +57,7 @@ namespace ApiFundacion.Repository.Usuarios
 
         public List<Personal> GetPersonal()
         {
-            return  context.Personals.Where(x => x.Nombre != null).OrderBy(x => x.Nombre).ToList();
+            return  context.Personals.Where(x => x.Nombre != null && x.Id != 33).OrderBy(x => x.Nombre).ToList();
         }
 
         public List<Usuario> GetUsuario()
