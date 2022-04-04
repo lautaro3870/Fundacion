@@ -35,7 +35,7 @@ namespace ApiFundacion.Repository
 
         public IEnumerable<Area> GetAreas()
         {
-            return context.Areas.ToList();
+            return context.Areas.OrderBy(x => x.Area1).ToList();
         }
 
         public bool Save()
