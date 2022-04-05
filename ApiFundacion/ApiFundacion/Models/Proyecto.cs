@@ -39,6 +39,7 @@ namespace ApiFundacion.Models
         public char? Trial118 { get; set; }
         public bool? Activo { get; set; }
         public string Link { get; set; }
+        public bool? Convenio { get; set; }
 
         public virtual ICollection<Areasxproyecto> Areasxproyectos { get; set; }
         public virtual ICollection<Equipoxproyecto> Equipoxproyectos { get; set; }

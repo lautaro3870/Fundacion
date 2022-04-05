@@ -21,7 +21,7 @@ namespace ApiFundacion.Models.DTO
         public List<AreasDTO> ListaAreas { get; set; }
         public string Departamentos { get; set; }
         public string Link { get; set; }
-
+        public bool? Convenio { get; set; }
 
     }
 }

@@ -289,6 +289,8 @@ namespace ApiFundacion.Models
                     .HasColumnName("contratante")
                     .HasComment("TRIAL");
 
+                entity.Property(e => e.Convenio).HasColumnName("convenio");
+
                 entity.Property(e => e.Departamento)
                     .HasMaxLength(255)
                     .HasColumnName("departamento")

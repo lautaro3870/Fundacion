@@ -44,6 +44,7 @@ namespace ApiFundacion.Repository.Proyectos
             pro.Dirección = proyecto.Dirección;
             pro.FichaLista = proyecto.FichaLista;
             pro.Link = proyecto.Link;
+            pro.Convenio = proyecto.Convenio;
 
 
             await context.Proyectos.AddAsync(pro);
@@ -139,7 +140,8 @@ namespace ApiFundacion.Repository.Proyectos
                     PaisRegion = i.PaisRegion,
                     MontoContrato = i.MontoContrato,
                     Moneda = i.Moneda,
-                    Link = i.Link
+                    Link = i.Link,
+                    Convenio = i.Convenio
                 };
 
                 listProyectoDto.Add(proyectoDto);
@@ -192,7 +194,8 @@ namespace ApiFundacion.Repository.Proyectos
                         PaisRegion = p.PaisRegion,
                         MontoContrato = p.MontoContrato,
                         Moneda = p.Moneda,
-                        Link = p.Link
+                        Link = p.Link,
+                        Convenio = p.Convenio
                     };
                     //listProyectoDto.Add(pDto);
                     listaProyectoDtoFilter.Add(pDto);
@@ -272,7 +275,7 @@ namespace ApiFundacion.Repository.Proyectos
                     FichaLista = i.FichaLista,
                     MesFinalizacion = i.MesFinalizacion,
                     MesInicio = i.MesInicio,
-                    PaisRegion = i.PaisRegion
+                    PaisRegion = i.PaisRegion,  
                 };
 
                 listProyectoDto.Add(proyectoDto);
@@ -313,6 +316,7 @@ namespace ApiFundacion.Repository.Proyectos
                 pro.Dirección = proyecto.Dirección ?? pro.Dirección;
                 pro.FichaLista = proyecto.FichaLista ?? pro.FichaLista;
                 pro.Link = proyecto.Link ?? pro.Link;
+                pro.Convenio = proyecto.Convenio ?? pro.Convenio;
 
                 var areaProyecto = await context.Areasxproyectos.Where(x => x.Idproyecto == proyecto.Id).ToListAsync();
                 foreach(var j in areaProyecto)
@@ -501,7 +505,8 @@ namespace ApiFundacion.Repository.Proyectos
                     Dirección = i.Dirección,
                     Contratante = i.Contratante,
                     Link = i.Link,
-                    ListaPublicaciones = listaPublicacionesDto
+                    ListaPublicaciones = listaPublicacionesDto,
+                    Convenio = i.Convenio
                 };
 
                 listProyectoDto.Add(proyectoDto);

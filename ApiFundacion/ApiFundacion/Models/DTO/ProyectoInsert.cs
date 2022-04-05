@@ -27,6 +27,7 @@ namespace ApiFundacion.Models.DTO
         public string Moneda { get; set; }
         public bool? Certconformidad { get; set; }
         public int? Certificadopor { get; set; }
+        public bool? Convenio { get; set; }
         //public byte[] SsmaTimestamp { get; set; }
         //public char? Trial118 { get; set; }
         public bool? Activo { get; set; }

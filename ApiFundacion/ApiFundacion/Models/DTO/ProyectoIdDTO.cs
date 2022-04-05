@@ -31,7 +31,7 @@ namespace ApiFundacion.Models.DTO
         //public char? Trial118 { get; set; }
         public bool? Activo { get; set; }
         public string Link { get; set; }
-
+        public bool? Convenio { get; set; }
         public List<AreasDTO> ListaAreas { get; set; }
         public List<PersonalDTOId> ListaPersonal { get; set; }
 
