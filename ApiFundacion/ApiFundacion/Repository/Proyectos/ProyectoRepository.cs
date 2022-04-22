@@ -141,7 +141,8 @@ namespace ApiFundacion.Repository.Proyectos
                     MontoContrato = i.MontoContrato,
                     Moneda = i.Moneda,
                     Link = i.Link,
-                    Convenio = i.Convenio
+                    Convenio = i.Convenio,
+                    Contratante = i.Contratante
                 };
 
                 listProyectoDto.Add(proyectoDto);
@@ -195,7 +196,8 @@ namespace ApiFundacion.Repository.Proyectos
                         MontoContrato = p.MontoContrato,
                         Moneda = p.Moneda,
                         Link = p.Link,
-                        Convenio = p.Convenio
+                        Convenio = p.Convenio,
+                        Contratante = p.Contratante
                     };
                     //listProyectoDto.Add(pDto);
                     listaProyectoDtoFilter.Add(pDto);
