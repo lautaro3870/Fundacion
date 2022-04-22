@@ -22,6 +22,7 @@ namespace ApiFundacion.Models.DTO
         public string Departamentos { get; set; }
         public string Link { get; set; }
         public bool? Convenio { get; set; }
+        public string Contratante { get; set; }
 
     }
 }
